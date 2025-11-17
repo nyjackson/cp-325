@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 async function connectDB(){
 try{
-await mongoose.connect(process.ev)
+await mongoose.connect(process.env.MONGOOSE_URL)
 }
 catch(e){
 
