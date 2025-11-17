@@ -1,8 +1,10 @@
 import './Homepage.css'
+import Hero from '../Hero';
+
 function Homepage() {
   return (
     <div id="home">
-      <h1>Homepage</h1>
+      <Hero />
     </div>
   );
 }

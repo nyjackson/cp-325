@@ -4,6 +4,9 @@ import './App.css'
 
 import NavBar from './components/NavBar/NavBar'
 import Homepage from './components/Home/Homepage'
+import Footer from './components/Footer/Footer'
+import Taxes from './components/Taxes/Taxes'
+import Pricing from './components/Pricing'
 function App() {
 
   return (
@@ -11,7 +14,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path = "/" element = {<Homepage/>}/>
+        <Route path = "/tax" element = {<Taxes/>}/>
+        <Route path = "/pricing" element = {<Pricing/>}/>
       </Routes>
+      <Footer/>
     </>
   )
 }

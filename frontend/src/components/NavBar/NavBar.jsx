@@ -4,11 +4,11 @@ function NavBar(){
 return(<div id ="nav-bar">
     <Link to = "/" className = "link" id = "company-name"><h1>Song Dynasty</h1></Link> 
     <ul id = "nav-links">
-    <li>Tax Filing </li> 
+    <Link to = "/tax" className = "link">Tax Filing</Link>
     <li>Refund Options</li>
-    <li>Pricing</li>
+    <Link to = "/pricing" className = "link">Pricing</Link>
     <li>Search</li>
-    <li>Sign Up/Sign In</li>
+    <li id = "account-btn">Sign Up/Sign In</li>
 </ul>
 </div>)
 }
