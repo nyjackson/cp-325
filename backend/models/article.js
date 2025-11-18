@@ -15,6 +15,6 @@ const articleSchema = mongoose.Schema({
   imgs: {type:Array, required:false}
 });
 
-const Article = mongoose.model('article', articleSchema)
+const Article = mongoose.model('articles', articleSchema)
 
 export default Article

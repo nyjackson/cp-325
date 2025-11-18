@@ -14,4 +14,9 @@ const APPT_TAX_TYPE = {
     BUS: "business"
 }
 
-export default {APPT_STATUS, APPT_TAX_TYPE}
+const APP_TYPE = {
+    ONL: "Online",
+    INP: "In-Person"
+}
+
+export default {APPT_STATUS, APPT_TAX_TYPE, APP_TYPE}
