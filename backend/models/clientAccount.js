@@ -1,7 +1,7 @@
 //import enums from "../enums";
 import mongoose from "mongoose";
 
-const accountSchema = mongoose.Schema({
+const clientAccountSchema = mongoose.Schema({
   client_first_name: {type:String, required: true},
   client_last_name: {type: String, required :true},
   username: {type:String, required:true},
@@ -14,11 +14,12 @@ const accountSchema = mongoose.Schema({
   req_forms: {type:Array, default: []},
   tax_yr_returns: {type: Array, default: []}, // {return_yr: 2021, completed: BOOL completed_on: DATE, status: refund_given || payment_owed
  // tax_yr_return_results:{type: Array, default: []}
+ connected_accounts: {type: Array, default: []} //by client username
   
 
   
 });
 
-const Account = mongoose.model('accounts', accountSchema) // collection, schema
+const ClientAccount = mongoose.model('accounts', clientAccountSchema) // collection, schema
 
-export default Account
+export default ClientAccount
