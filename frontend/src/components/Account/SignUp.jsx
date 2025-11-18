@@ -1,5 +1,6 @@
-function SignUp(){
-
+function SignUp() {
+  function handleSubmit() {}
+  return <form></form>;
 }
 
-export default SignUp
+export default SignUp;
