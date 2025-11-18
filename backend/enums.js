@@ -22,8 +22,7 @@ const APP_TYPE = {
 const EMP_ROLES = {
 TP: "Tax Preparer", 
 TS: "Tech Support",
-M: "Manager",
-
+M: "Manager"
 }
 
 export default {APPT_STATUS, APPT_TAX_TYPE, APP_TYPE, EMP_ROLES}

@@ -19,5 +19,3 @@ const clientAccountSchema = mongoose.Schema({
 const ClientAccount = mongoose.model('client_accounts', clientAccountSchema) // collection, schema
 
 export default ClientAccount
-
- // tax_yr_return_results:{type: Array, default: []}
