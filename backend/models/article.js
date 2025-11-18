@@ -9,10 +9,10 @@ const articleSchema = mongoose.Schema({
   article_name: { type: String, required: true },
   author: { type: String, required: true },
   posted_on: { type: Date, default: Date.now(), required:true },
-  edited_on : {type:Date, required:false},
-  tags: {type: Array, required: false},
+  edited_on : {type:Date},
+  tags: {type: Array},
   content: {type: String, required: true},
-  imgs: {type:Array, required:false}
+  imgs: {type:Array}
 });
 
 const Article = mongoose.model('articles', articleSchema)

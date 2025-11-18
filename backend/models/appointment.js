@@ -15,6 +15,7 @@ const appointmentSchema = mongoose.Schema({
   status: {type: enums.APPT_STATUS, required:true}, // completed, scheduled, canceled, rescheduled, confirmed, unconfirmed, missed (enum?)
   notes: {type:String, required:false},
   special_requests:{type:String, required:false},
+  has_account: {type: Boolean, required:true}
 });
 
 const Appointment = mongoose.model('appointments', appointmentSchema) // collection, schema
