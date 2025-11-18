@@ -13,13 +13,11 @@ const clientAccountSchema = mongoose.Schema({
   completed_forms:{type:Array, default:[]},
   req_forms: {type:Array, default: []},
   tax_yr_returns: {type: Array, default: []}, // {return_yr: 2021, completed: BOOL completed_on: DATE, status: refund_given || payment_owed
- // tax_yr_return_results:{type: Array, default: []}
- connected_accounts: {type: Array, default: []} //by client username
-  
-
-  
+  connected_accounts: {type: Array, default: []} //by client username
 });
 
-const ClientAccount = mongoose.model('accounts', clientAccountSchema) // collection, schema
+const ClientAccount = mongoose.model('client_accounts', clientAccountSchema) // collection, schema
 
 export default ClientAccount
+
+ // tax_yr_return_results:{type: Array, default: []}
