@@ -1,5 +1,9 @@
 ## Capstone 325: MERN Project
 
+
+## Links
+- JIRA Project Board
+- Netlify
 ## Access
 
 ## Installation
@@ -9,4 +13,8 @@
 ## Libraries/Frameworks Used
 
 ## Folders & Files
+
+### /frontend
+
+### /backend
 

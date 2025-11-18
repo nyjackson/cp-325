@@ -12,6 +12,17 @@ const displayInfo = async (req, res) => {
   }
 };
 
+const displayEmployees = async (req,res) => {
+    try{
+        
+        const result = await EmployeeAccount.find({})
+        res.status(200).send({message: "Loading all available employuees", result: result})
+    }
+    catch(e){
+        console.log(e.message)
+    }
+}
+
 const addClient = async (req, res) => {
   try {
     console.log("Add Client");
@@ -53,4 +64,4 @@ const deleteAccount =  async (req,res) => {
         console.log(e)
     }
 }
-export default { displayInfo };
+export default { displayInfo, addEmployee, displayEmployees };
