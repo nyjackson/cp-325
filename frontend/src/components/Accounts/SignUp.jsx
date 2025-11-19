@@ -13,11 +13,13 @@ function SignUp() {
     const newAccount = {
       "client_first_name": formRef.current[0].value,
       "client_last_name": formRef.current[1].value,
-      "contact": {"email":formRef.current[2].value},
+      "contact": {"email":formRef.current[2].value , "phone":formRef.current[3].value},
+      "username": formRef.current[4].value,
+      "password": formRef.current[5].value, // add password logic here. (encrypt before transit)
     }
     console.log(formRef)
     try{
-     const response = await fetch(BACKEND_URL+"/account/register", {method: "post", body: newAccount, headers: {'Content-Type':'application/json'}})
+     const response = await fetch(BACKEND_URL+"/account/register/client", {method: "post", body: JSON.stringify(newAccount), headers: {'Content-Type':'application/json'}})
      const accountCreated = await response.json()
 
      console.log("Account Created:", accountCreated)

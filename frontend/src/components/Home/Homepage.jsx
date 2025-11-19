@@ -15,7 +15,7 @@ function Homepage() {
 
 
   console.log(empList)
-  const listAll = empList.map((e) => <li>{e.username}</li>)
+  const listAll = empList.map((e) => <li key = {e._id}>{e.username}</li>)
   return (
     <div id="home">
       <Hero title = {"PROMOTION"} content = {"Lorem Ipsum So You Don't Have To"}/>
