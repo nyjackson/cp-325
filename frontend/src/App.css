@@ -7,3 +7,12 @@
     padding:1%;
     margin-top:1%;
 }
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+form > input{
+    width:50%;
+}

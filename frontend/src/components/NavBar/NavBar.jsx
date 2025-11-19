@@ -8,7 +8,7 @@ return(<div id ="nav-bar">
     <li>Refund Options</li>
     <Link to = "/pricing" className = "link">Pricing</Link>
     <li>Search</li>
-    <li id = "account-btn">Sign Up/Sign In</li>
+    <Link id = "account-btn" to = "/register" className = "link">Sign Up/Sign In</Link>
 </ul>
 </div>)
 }
