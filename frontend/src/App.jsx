@@ -12,7 +12,7 @@ import SignUp from './components/Accounts/SignUp'
 import SignIn from './components/Accounts/SignIn'
 import Account from './components/Accounts/Account'
 
-const backendURL = import.meta.env.VITE_BACKEND_URL
+export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 //console.log(backendURL)
 
 function App() {

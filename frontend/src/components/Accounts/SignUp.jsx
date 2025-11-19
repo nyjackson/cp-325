@@ -1,19 +1,37 @@
-import Form from "../Form";
 import Account from "./Account";
 import SignIn from "./SignIn";
 import { Link } from "react-router";
-import {useRef} from 'react'
-
+import { useRef } from "react";
+import { BACKEND_URL } from "../../App";
 function SignUp() {
-  const formRef = useRef()
-  function handleForm(e) {
+
+  const formRef = useRef();
+
+  async function handleForm(e) {
     e.preventDefault();
-    console.log('handle Sign Up Form Submission')
+    console.log("handle Sign Up Form Submission");
+    const newAccount = {
+      "client_first_name": formRef.current[0],
+      "client_last_name": formRef.current[1],
+      "contact": {"email":formRef.current[2]},
+    }
+    console.log(formRef)
+    try{
+     const response = await fetch(BACKEND_URL+"/register", {method: "POST", body: JSON.stringify(newAccount), headers: {'Content-Type':'application/json'}})
+     const accountCreated = await response.json()
+
+     console.log(accountCreated)
+     // reducer here to add the new account to accounts 
+    }
+    catch(e){
+      console.log(e)
+    }
   }
+
   return (
     <>
       <h1> Client Sign Up Form</h1>
-      <form ref = {formRef} onSubmit={handleForm}>
+      <form ref={formRef} onSubmit={handleForm}>
         <label htmlFor="fname">First Name: </label>
         <input
           type="text"
@@ -41,6 +59,16 @@ function SignUp() {
           name="email"
           placeholder="bboberton@mail.com"
           autoComplete="email"
+        />
+        <br></br>
+
+        <label htmlFor="phone">Phone: </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="992-334-9830"
+          autoComplete="tel"
         />
         <br></br>
 
@@ -73,7 +101,9 @@ function SignUp() {
         <br></br>
 
         <button>
-          <Link to="/account" element={<Account />}>Sign Up</Link>
+          <Link to="/account" element={<Account />}>
+            Sign Up
+          </Link>
         </button>
       </form>
 
