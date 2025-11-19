@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000
 
 // Middleware
 app.use(express.json())
-//app.use(cors) //uncomment once needed
+app.use(cors()) //uncomment once needed, re-comment on backend testing
 
 app.use((req,res,next) => {
     console.log(req.url)
@@ -20,7 +20,7 @@ app.use((req,res,next) => {
 app.use('/account', accountRoutes)
 
 app.get('/', (req, res) => {
-    res.status(200).send("Hello World")
+    res.status(200).send({message: "Grabbing all info", body:res.body})
 })
 
 app.listen(port, () =>{

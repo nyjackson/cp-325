@@ -1,9 +1,14 @@
 import express from 'express'
 import accountController from '../controllers/accountController.js'
 const router = express.Router()
+// account/*
 
-router.get('/', accountController.displayInfo)
 router.get('/all/employees',accountController.displayEmployees)
-router.post('/add/employee', accountController.addEmployee)
+router.get('/all/clients',accountController.displayClients)
+
+router.post('/register/client', accountController.addClient)
+router.post('/register/employee', accountController.addEmployee)
+router.get('/', accountController.displayInfo)
 //router.get('/', accountController.displayInfo)
+
 export default router;

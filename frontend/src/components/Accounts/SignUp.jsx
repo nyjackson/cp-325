@@ -17,14 +17,15 @@ function SignUp() {
     }
     console.log(formRef)
     try{
-     const response = await fetch(BACKEND_URL+"/register", {method: "POST", body: JSON.stringify(newAccount), headers: {'Content-Type':'application/json'}})
+     const response = await fetch(BACKEND_URL+"/account/register", {method: "POST", body: newAccount, headers: {'Content-Type':'application/json'}})
      const accountCreated = await response.json()
+     
+     console.log("Account Created:", accountCreated)
 
-     console.log(accountCreated)
      // reducer here to add the new account to accounts 
     }
     catch(e){
-      console.log(e)
+      console.log("Error Detected", e)
     }
   }
 
@@ -101,9 +102,10 @@ function SignUp() {
         <br></br>
 
         <button>
-          <Link to="/account" element={<Account />}>
+          {/* <Link to="/account" element={<Account />}>
             Sign Up
-          </Link>
+          </Link> */}
+          Sign Up
         </button>
       </form>
 
