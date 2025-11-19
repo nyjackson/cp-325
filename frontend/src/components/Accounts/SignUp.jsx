@@ -11,15 +11,15 @@ function SignUp() {
     e.preventDefault();
     console.log("handle Sign Up Form Submission");
     const newAccount = {
-      "client_first_name": formRef.current[0],
-      "client_last_name": formRef.current[1],
-      "contact": {"email":formRef.current[2]},
+      "client_first_name": formRef.current[0].value,
+      "client_last_name": formRef.current[1].value,
+      "contact": {"email":formRef.current[2].value},
     }
     console.log(formRef)
     try{
-     const response = await fetch(BACKEND_URL+"/account/register", {method: "POST", body: newAccount, headers: {'Content-Type':'application/json'}})
+     const response = await fetch(BACKEND_URL+"/account/register", {method: "post", body: newAccount, headers: {'Content-Type':'application/json'}})
      const accountCreated = await response.json()
-     
+
      console.log("Account Created:", accountCreated)
 
      // reducer here to add the new account to accounts 
