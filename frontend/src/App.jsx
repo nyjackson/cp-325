@@ -8,8 +8,10 @@ import Homepage from './components/Home/Homepage'
 import Footer from './components/Footer/Footer'
 import Taxes from './components/Taxes/Taxes'
 import Pricing from './components/Pricing'
-import SignUp from './components/Account/SignUp'
-import SignIn from './components/Account/SignIn'
+import SignUp from './components/Accounts/SignUp'
+import SignIn from './components/Accounts/SignIn'
+import Account from './components/Accounts/Account'
+
 const backendURL = import.meta.env.VITE_BACKEND_URL
 //console.log(backendURL)
 
@@ -24,6 +26,7 @@ function App() {
         <Route path = "/pricing" element = {<Pricing/>}/>
         <Route path = "/register" element = {<SignUp />}/>
         <Route path = "/login" element = {<SignIn />}/>
+        <Route path = "/account" element = {<Account />}/>
       </Routes>
       <Footer/>
     </>
