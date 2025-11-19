@@ -13,8 +13,8 @@ bcrypt.genSalt(saltRounds, (err, salt) => {
   // Salt generation successful, proceed to hash the password
 });
 
-const userPassword = "user_password"; // Replace with the actual password
-const encryption = bcrypt.hash(userPassword, salt, (err, hash) => {
+//const userPassword = "user_password"; // Replace with the actual password
+const encryption = (userPassword) => bcrypt.hash(userPassword, salt, (err, hash) => {
   if (err) {
     // Handle error
     return;
