@@ -1,6 +1,6 @@
 // incomplete and untested, use for passwords! and usernames?
 import bcrypt from "bcrypt";
-
+import ClientAccount from "../models/clientAccount.js";
 const saltRounds = 10;
 
 const genHash = async (password) => {
@@ -19,7 +19,7 @@ const genHash = async (password) => {
 const comparePass = async (storedHashPass, userInputPass) => {
   try {
     if (typeof storedHashPass == String && typeof userInputPass == String) {
-      const comparison = bcrypt.compare(
+      const comparison = await bcrypt.compare(
         userInputPass,
         storedHashPass,
         (err, result) => {
@@ -46,7 +46,20 @@ const comparePass = async (storedHashPass, userInputPass) => {
     throw e;
   }
 };
-
+const validate = async (req, res, next) => {
+    const {username, password} = req.body
+    console.log("In Validate")
+    try{
+        const Client = await ClientAccount.find({username})
+        const passCheck = await comparePass(password, Client.password)
+        console.log(passCheck)
+    }
+    catch(e){
+        console.log(e)
+        res.status(404).json({message:e.message})
+    }
+    next()
+}
 // function comparePassEntry(storedHashPass, userInputPass) {
 //   if (typeof storedHashPass == String && typeof userInputPass == String)
 //     bcrypt.compare(userInputPass, storedHashPass, (err, result) => {
@@ -67,4 +80,4 @@ const comparePass = async (storedHashPass, userInputPass) => {
 //     });
 // }
 
-export default { genHash, comparePass };
+export default { genHash, comparePass, validate };
