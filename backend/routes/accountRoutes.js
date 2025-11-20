@@ -11,6 +11,6 @@ router.post('/register/employee', accountController.addEmployee)
 
 router.get('/', accountController.displayInfo)
 
-router.get('/signin/client',accountController.clientSignIn)
+router.get('/login/client',accountController.clientSignIn)
 
 export default router;

@@ -1,4 +1,4 @@
-//import { BACKEND_URL } from "../../frontend/src/App";
+
 import ClientAccount from "../models/clientAccount.js";
 import EmployeeAccount from "../models/employeeAccount.js";
 import authController from "./authController.js";
@@ -94,32 +94,32 @@ const deleteAccount = async (req, res) => {
   }
 };
 
-const clientSignIn = async (req, res) => {
-  try {
-    console.log(req);
-    const connection = await fetch(BACKEND_URL + "/account/signin/client");
-    const result = await connection.json();
-    const findUserByName = result.find({ username: req.body?.username });
+// const clientSignIn = async (req, res) => {
+//   try {
+//     console.log(req);
+//     const connection = await fetch(BACKEND_URL + "/account/login/client");
+//     const result = await connection.json();
+//     const findUserByName = await result.find({ username: req.body?.username });
 
-    const findUserByPhone = result.find({ phone: req.body?.contact?.phone }); // need logic to go thru array pf contact
+//     const findUserByPhone = await result.find({ phone: req.body?.contact?.phone }); // need logic to go thru array pf contact
 
-    const findUserByEmail = result.find({ email: req.body?.contact?.email });
+//     const findUserByEmail = await result.find({ email: req.body?.contact?.email });
 
-    const userFound = findUserByName || findUserByEmail || findUserByPhone;
+//     const userFound = findUserByName || findUserByEmail || findUserByPhone;
 
-    console.log(userFound);
+//     console.log(userFound);
 
-    console.log(result);
-  } catch (e) {
-    console.log(e);
-    res.status(404).send({ message: e.message }); // body: (username entered)
-  }
-};
+//     console.log(result);
+//   } catch (e) {
+//     console.log(e);
+//     res.status(404).send({ message: e.message }); // body: (username entered)
+//   }
+// };
 export default {
   displayInfo,
   addEmployee,
   displayEmployees,
   displayClients,
   addClient,
-  clientSignIn,
+  //clientSignIn,
 };
