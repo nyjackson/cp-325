@@ -1,6 +1,7 @@
 //import { BACKEND_URL } from "../../frontend/src/App";
 import ClientAccount from "../models/clientAccount.js";
 import EmployeeAccount from "../models/employeeAccount.js";
+import authController from "./authController.js";
 
 const displayInfo = async (req, res) => {
   try {
@@ -37,9 +38,14 @@ const displayClients = async (req,res) => {
 }
 
 const addClient = async (req, res) => {
+  const hashedPassword = await authController.genHash(req.body.password)
+  console.log(req.body)
+  console.log("In Add Client. Hash Pass:", hashedPassword)
+
   try {
     console.log("Add Client");
-    const clientAcct = new ClientAccount(req.body)
+    const clientAcct = new ClientAccount({...req.body, password: hashedPassword.toString()})
+    console.log(clientAcct)
     await clientAcct.save()
     res.status(200).json(clientAcct);
   } catch (e) {
@@ -58,6 +64,7 @@ const addEmployee = async (req, res) => {
     console.log("Add Employee");
     //const employeeAcct = EmployeeAccount.create(req.body);
     const employeeAcct = new EmployeeAccount(req.body)
+    employeeAcct = {...employeeAcct, password: encryption.genHash(req.body.password)}
     await employeeAcct.save()
     res.status(200).json(employeeAcct);
 
