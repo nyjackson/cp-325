@@ -1,13 +1,43 @@
 import SignUp from "./SignUp";
 import {Link} from 'react-router'
+import {useRef} from 'react'
+
 function SignIn() {
-  function handleSubmit() {}
-  return (<>
-  <h1>Client SignIn</h1>
-    <button>Sign Up</button>
+  const formRef = useRef()
+  async function handleLogin(e) {
+    e.preventDefault()
+    try{
+      //const connection = await fetch(BACKEND_URL+"/signin")
+    }
+    catch(e){
+      console.log(e)
+    }
+  }
+  return (
+  <>
+  <h1>Client Sign In</h1>
+  <form ref = {formRef} onSubmit = {handleLogin}>
+        <label htmlFor="uname">Username, Email, or Phone Number: </label>
+        <input
+          type="text"
+          id="uname"
+          name="lname"
+          autoComplete="username"
+        />
+        <br></br>
+
+        <label htmlFor="pass">Password: </label>
+        <input
+          type="password"
+          className="pass"
+          name="password"
+          autoComplete="password"
+        />
+        <br></br>
+  </form>
+    <button>Sign In</button>
   <Link to = "/register" element = {<SignUp />}>Don't have an account?</Link>
-  </>
-  );
+  </>);
 }
 
 export default SignIn;

@@ -8,7 +8,9 @@ router.get('/all/clients',accountController.displayClients)
 
 router.post('/register/client', accountController.addClient)
 router.post('/register/employee', accountController.addEmployee)
+
 router.get('/', accountController.displayInfo)
-//router.get('/', accountController.displayInfo)
+
+router.get('/signin/client',accountController.clientSignIn)
 
 export default router;

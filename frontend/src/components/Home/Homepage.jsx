@@ -13,7 +13,6 @@ function Homepage() {
       console.log("data")
   }
 
-
   console.log(empList)
   const listAll = empList.map((e) => <li key = {e._id}>{e.username}</li>)
   return (
