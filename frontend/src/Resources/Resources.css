@@ -1,0 +1,10 @@
+#article-listing{
+    display:flex;
+}
+
+#featured{
+    width:60%;
+    border-right: 1px solid black;
+    margin-right:1%;
+    margin-left:1%;
+}

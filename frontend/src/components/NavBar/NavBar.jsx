@@ -6,7 +6,7 @@ return(<div id ="nav-bar">
     <ul id = "nav-links">
     <Link to = "/tax" className = "link">Tax Filing</Link>
     <Link to = "/pricing" className = "link">Pricing</Link>
-    <Link to = "/" className = "link">Resources</Link>
+    <Link to = "/resources" className = "link">Resources</Link>
     <li>Search</li>
     <Link id = "account-btn" to = "/register" className = "link">Sign Up/Sign In</Link>
 </ul>
