@@ -2,4 +2,17 @@
     padding:1%;
     border:1px solid black;
     margin:1%;
+    border-radius:15%;
+    font-family: "Spectral", serif;
+    box-shadow:2px 2px 2px;
+    width:33%;
 }
+
+.tax-offering > button{
+padding:1% 10%;
+font-family: "Nanum Myeongjo", serif;
+font-weight:bold;
+letter-spacing: 1px;
+}
+
+ 

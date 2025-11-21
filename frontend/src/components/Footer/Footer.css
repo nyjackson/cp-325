@@ -1,4 +1,10 @@
-#footer{
+footer{
     width:auto;
     padding:0% .5% .1%;
+    text-align: center;
+    background-color:maroon ;
+    color:white;
+}
+footer > ul {
+    list-style: none;
 }

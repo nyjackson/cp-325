@@ -1,11 +1,11 @@
 import "./TaxCard.css"
 
-function TaxCard(){
+function TaxCard({title, price, description, }){
 return(
 <div className = "tax-offering">
-    <h1>File Yourself</h1>
-    <h2>$0*</h2>
-    <p>Using our provided resources, we will offer you a free walkthrough on filing individual tax returns. </p>
+    <h1>{title}</h1>
+    <h2>{price}</h2>
+    <p>{description}</p>
     <button>Get Started</button>
 </div>)
 }

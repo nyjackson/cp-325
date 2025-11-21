@@ -7,10 +7,15 @@ function Taxes() {
     <>
       <Hero title = {"File Taxes Your Way"} content = {"Filing Taxes has never been easier! Choose one of our selections to get started:"}/>
       <div id = "tax-options">
-        <TaxCard/>
-        <TaxCard/>
-        <TaxCard/>
+        <TaxCard title = {"File Yourself"} price = {"Free"} description = {"Using our provided resources, we will offer you a free walkthrough on filing individual tax returns."}/>
+        <TaxCard title = {"Tax Review"} price = {"$50+"} description = {"Complete your tax return and get it reviewed by a Tax Expert before submission."}/>
+        <TaxCard title = {"Expertly File"} price = {"$80+"} description = {"Submit your individual or business tax forms and get your return completed by a Tax Expert."}/>
       </div>
+      <div style = {{"text-align":"center"}}>
+      <h2>Not Sure Which Is Best? Take a Quiz for a recommedation.</h2>
+      <button>Take The Quiz</button>
+      </div>
+      
     </>
   );
 }

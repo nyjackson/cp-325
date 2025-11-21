@@ -1,12 +1,13 @@
 .hero-section{
     background-color: maroon;
-    color:lightgray;
+    color:white;
     height:30%;
     width:auto;
     margin:0;
     padding:1%;
     margin-top:1%;
     text-align:center;
+    font-family: "Nanum Myeongjo", serif;
 }
 
 form{
