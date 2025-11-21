@@ -1,6 +1,7 @@
 import express from 'express'
 import accountController from '../controllers/accountController.js'
 import authController from '../controllers/authController.js'
+
 const router = express.Router()
 // account/*
 
@@ -13,5 +14,6 @@ router.post('/register/employee', accountController.addEmployee)
 router.get('/', accountController.displayInfo)
 
 router.use('/login/client', authController.validate, accountController.clientSignIn) //middleware
+router.get('/profile', accountController.displayProfile)
 
 export default router;

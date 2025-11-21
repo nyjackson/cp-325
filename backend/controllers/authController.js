@@ -1,6 +1,7 @@
 // incomplete and untested, use for passwords! and usernames?
 import bcrypt from "bcrypt";
 import ClientAccount from "../models/clientAccount.js";
+import accountController from "./accountController.js";
 const saltRounds = 10;
 
 const genHash = async (password) => {
@@ -18,17 +19,15 @@ const genHash = async (password) => {
 
 const comparePass = async (userInputPass, storedHashPass) => {
     console.log("In Compare Pass")
-    console.log(" Passwords. Hash" , storedHashPass, "Input:", userInputPass)
-  if (typeof storedHashPass == "string" && typeof userInputPass == "string") {
+    console.log("Passwords. Hash:" , storedHashPass, "Input:", userInputPass)
     console.log("both are strings")
-      const comparison = await bcrypt.compare(
+      bcrypt.compare(
         userInputPass,
         storedHashPass, function(err, result) {
         if (err) { throw (err); }
-        console.log(result);
-    }); 
-      return comparison
-}
+        console.log("Result", result);
+        return result
+    });
 };
 
 const validate = async (req, res, next) => {
@@ -38,16 +37,20 @@ const validate = async (req, res, next) => {
     try{
         const client = await ClientAccount.find({username})
         console.log(client)
-        const passCheck = await comparePass(password, client[0].password) || password === client[0].password // remove or case, only for testing purposes
-        console.log("Password Check", passCheck)
-    }
+        console.log("Hashed Pass:", client[0].password.toString())
+        await comparePass(password.toString(), client[0].password.toString()) // || password === client[0].password // remove or case, only for testing purposes
+        next()
+      }
     catch(e){
         console.log(e)
         res.status(404).json({message:e.message})
     }
-    next()
 }
 
+// console.log("AUTHCONTROLLER TESTING")
+// const hash = await genHash("fauth")
+// const check = await comparePass("fauth", hash)
+// console.log("Password Check: ", check)
 
 // function comparePassEntry(storedHashPass, userInputPass) {
 //   if (typeof storedHashPass == String && typeof userInputPass == String)

@@ -95,13 +95,17 @@ const deleteAccount = async (req, res) => {
 };
 
 const clientSignIn = async (req, res) => {
-  console.log("Client Sign In")
+  console.log("In Client Sign In")
+  console.log(result)
   try{
     
   }
   catch(e){
     console.log(e)
   }
+
+ 
+
   // try {
   //   console.log(req);
   //   const connection = await fetch(BACKEND_URL + "/account/login/client");
@@ -123,6 +127,18 @@ const clientSignIn = async (req, res) => {
   // }
 };
 
+ const displayProfile = async (req,res) => {
+    console.log(req.body)
+    try{
+      const user = ClientAccount.find({username})
+      console.log(user)
+    }
+    catch(e){
+
+    }
+    
+  }
+
 export default {
   displayInfo,
   addEmployee,
@@ -130,4 +146,5 @@ export default {
   displayClients,
   addClient,
   clientSignIn,
+  displayProfile,
 };
