@@ -16,4 +16,7 @@ router.get('/', accountController.displayInfo)
 router.post('/login/client', authController.validate, accountController.clientSignIn) //middleware
 router.get('/profile', accountController.displayProfile)
 
+
+router.delete('/delete', accountController.deleteUser)
+
 export default router;

@@ -34,11 +34,12 @@ const comparePass = async (userInputPass, storedHashPass) => {
 };
 
 const validate = async (req, res, next) => {
+  
     const {username, password} = req.body
     console.log("In Validate")
     console.log(username, password)
     try{
-        const client = await ClientAccount.find({username})
+        const client = await ClientAccount.find({username}) // || await EmployeeAccount.find({username})
         console.log(client)
         console.log("Hashed Pass:", client[0].password.toString())
         const passCheck = await comparePass(password.toString(), client[0].password.toString()) // || password === client[0].password // remove or case, only for testing purposes

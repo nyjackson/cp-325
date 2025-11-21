@@ -86,12 +86,27 @@ const addEmployee = async (req, res) => {
 const deleteClientAccount = async (req, res) => {
   const id = req.body._id 
   try {
-    console.log("Delete Account");
     const clientToDelete = ClientAccount.deleteOne({id})
+    console.log(clientToDelete)
+    res.status(200).json({message: "Client successfully deleted.", userDeleted: clientToDelete})
   } catch (e) {
     console.log(e);
+    res.status(404).json({message: "Client not found. Successfully deleted and/or does not exist.", body: req.body})
   }
 };
+
+const deleteEmployeeAccount = async(req,res) => {
+  const id = req.body._id
+  try{
+    const employeeToDelete = EmployeeAccount.deleteOne({id})
+    //move to old employee accounts collection? Do we want to keep past data? 
+    res.status(200).json({message: "Employee successfully deleted.", userDeleted: employeeToDelete})
+  }
+  catch(e){
+    console.log(e)
+    res.status(404).json({message: "Employee not found. Successfully deleted and/or does not exist.", body: req.body})
+  }
+}
 
 const clientSignIn = async (req, res) => {
   console.log("In Client Sign In")
@@ -129,6 +144,10 @@ const clientSignIn = async (req, res) => {
   // }
 };
 
+const deleteUser = async (req,res) => {
+  req.client_type == "client" ? deleteClientAccount : deleteEmployeeAccount;
+}
+
  const displayProfile = async (req,res) => {
     console.log(req.body)
     const userInfo = req.user
@@ -138,7 +157,7 @@ const clientSignIn = async (req, res) => {
       console.log(user)
     }
     catch(e){
-
+      console.log(e)
     }
     
   }
@@ -151,4 +170,5 @@ export default {
   addClient,
   clientSignIn,
   displayProfile,
+  deleteUser
 };
