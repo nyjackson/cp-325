@@ -6,7 +6,11 @@ function Taxes() {
   return (
     <>
       <Hero title = {"File Taxes Your Way"} content = {"Filing Taxes has never been easier! Choose one of our selections to get started:"}/>
-      <TaxCard/>
+      <div id = "tax-options">
+        <TaxCard/>
+        <TaxCard/>
+        <TaxCard/>
+      </div>
     </>
   );
 }

@@ -17,3 +17,9 @@ form{
 form > input{
     width:50%;
 }
+
+#tax-options{
+    display:flex;
+    border:1px solid black;
+    text-align: center;
+}
