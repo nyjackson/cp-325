@@ -27,8 +27,9 @@ function SignIn() {
   }
   return (
   <>
-  <h1>Client Sign In</h1>
-  <form ref = {formRef} onSubmit = {handleLogin}>
+  
+  <form ref = {formRef} onSubmit = {handleLogin} id = "sign-in">
+    <h1>Client Sign In</h1>
         <label htmlFor="uname">Username, Email, or Phone Number: </label>
         <input
           type="text"
@@ -46,9 +47,11 @@ function SignIn() {
           autoComplete="password"
         />
         <br></br>
+        <button onClick = {handleLogin}>Sign In</button> 
+        <Link to = "/register" element = {<SignUp />}>Don't have an account?</Link>
   </form>
-    <button onClick = {handleLogin}>Sign In</button>
-  <Link to = "/register" element = {<SignUp />}>Don't have an account?</Link>
+    
+  
   </>);
 }
 

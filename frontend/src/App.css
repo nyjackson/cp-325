@@ -10,10 +10,6 @@
     font-family: "Nanum Myeongjo", serif;
 }
 
-form{
-    display:flex;
-    flex-direction:column;
-}
 
 form > input{
     width:50%;
@@ -23,4 +19,31 @@ form > input{
     display:flex;
     border:1px solid black;
     text-align: center;
+}
+
+#sign-in, #sign-up {
+    display:flex;
+    margin:5% auto;
+    border: 1px solid black;
+    width:50%;
+    flex-direction:column;
+    padding:1%;
+    font-family: "TASA Explorer", sans-serif;
+}
+
+#sign-in > *{
+    margin:auto;
+}
+#sign-in > h1{
+    padding-bottom:2%;
+}
+
+#sign-up > *{
+    margin:auto;
+}
+#sign-up > h1{
+    padding-bottom:1%;
+}
+#sign-up > label, input {
+    width:50%;
 }

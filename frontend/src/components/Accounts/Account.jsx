@@ -1,6 +1,7 @@
-function Account(){
+function Account({first_name}){
 return(<>
-<h1>List Account Details Here</h1>
+<Hero title = {`Welcome Back, ${first_name}!`}/>
+
 </>)
 }
 

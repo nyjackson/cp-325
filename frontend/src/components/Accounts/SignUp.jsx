@@ -34,8 +34,9 @@ function SignUp() {
 
   return (
     <>
-      <h1> Client Sign Up Form</h1>
-      <form ref={formRef} onSubmit={handleForm}>
+      
+      <form ref={formRef} onSubmit={handleForm} id = "sign-up">
+        <h1> Client Sign Up Form</h1>
         <label htmlFor="fname">First Name: </label>
         <input
           type="text"
@@ -110,12 +111,13 @@ function SignUp() {
           </Link> */}
           Sign Up
         </button>
-      </form>
-
-      <Link to="/login" element={<SignIn />}>
+        <Link to="/login" element={<SignIn />}>
         {" "}
         Have an account?
       </Link>
+      </form>
+
+      
     </>
   );
 }
