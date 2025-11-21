@@ -1,7 +1,8 @@
 // incomplete and untested, use for passwords! and usernames?
 import bcrypt from "bcrypt";
 import ClientAccount from "../models/clientAccount.js";
-import accountController from "./accountController.js";
+import jwt from 'jsonwebtoken'
+
 const saltRounds = 10;
 
 const genHash = async (password) => {
@@ -50,6 +51,16 @@ const validate = async (req, res, next) => {
     }
 }
 
+const getToken = async (user) => {
+  try{
+    const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET, {expiresIn : '2d'})
+    console.log("Token:", token)
+    return token
+  }
+  catch(e){
+    console.log(e)
+  }
+}
 // console.log("AUTHCONTROLLER TESTING")
 // const hash = await genHash("fauth")
 // const check = await comparePass("fauth", hash)
@@ -75,6 +86,6 @@ const validate = async (req, res, next) => {
 //     });
 // }
 
-export default { genHash, comparePass, validate };
+export default { genHash, comparePass, validate, getToken };
 
 

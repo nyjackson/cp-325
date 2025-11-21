@@ -2,7 +2,6 @@
 import ClientAccount from "../models/clientAccount.js";
 import EmployeeAccount from "../models/employeeAccount.js";
 import authController from "./authController.js";
-import jwt from 'jsonwebtoken'
 
 const displayInfo = async (req, res) => {
   try {
@@ -69,14 +68,10 @@ const addClient = async (req, res) => {
 };
 
 const addEmployee = async (req, res) => {
+  const hashedPassword = await authController.genHash(req.body.password)
   try {
     console.log("Add Employee");
-    //const employeeAcct = EmployeeAccount.create(req.body);
-    const employeeAcct = new EmployeeAccount(req.body);
-    employeeAcct = {
-      ...employeeAcct,
-      password: encryption.genHash(req.body.password),
-    };
+    const employeeAcct = new EmployeeAccount({...req.body, password: hashedPassword});
     await employeeAcct.save();
     res.status(200).json(employeeAcct);
   } catch (e) {
@@ -88,9 +83,11 @@ const addEmployee = async (req, res) => {
   }
 };
 
-const deleteAccount = async (req, res) => {
+const deleteClientAccount = async (req, res) => {
+  const id = req.body._id 
   try {
     console.log("Delete Account");
+    const clientToDelete = ClientAccount.deleteOne({id})
   } catch (e) {
     console.log(e);
   }
@@ -99,9 +96,11 @@ const deleteAccount = async (req, res) => {
 const clientSignIn = async (req, res) => {
   console.log("In Client Sign In")
   console.log(req.user)
-  if(req.user == undefined){ console.log("Invalid Password"); throw Error}
+  if(req.user == undefined){ console.log("Invalid Password. Try Again."); throw Error}
+
   try{
-    
+  const getToken = await authController.getToken(req.user)
+  res.status(200).json({token: getToken, user: req.user})
   }
   catch(e){
     console.log(e)
