@@ -21,13 +21,15 @@ const comparePass = async (userInputPass, storedHashPass) => {
     console.log("In Compare Pass")
     console.log("Passwords. Hash:" , storedHashPass, "Input:", userInputPass)
     console.log("both are strings")
-      bcrypt.compare(
+      try{
+        const comparison = await bcrypt.compare(
         userInputPass,
-        storedHashPass, function(err, result) {
-        if (err) { throw (err); }
-        console.log("Result", result);
-        return result
-    });
+        storedHashPass)
+        return comparison
+      }
+      catch(e){
+        console.log(e)
+      }
 };
 
 const validate = async (req, res, next) => {
@@ -38,7 +40,8 @@ const validate = async (req, res, next) => {
         const client = await ClientAccount.find({username})
         console.log(client)
         console.log("Hashed Pass:", client[0].password.toString())
-        await comparePass(password.toString(), client[0].password.toString()) // || password === client[0].password // remove or case, only for testing purposes
+        const passCheck = await comparePass(password.toString(), client[0].password.toString()) // || password === client[0].password // remove or case, only for testing purposes
+        passCheck ? req.user = client : ''
         next()
       }
     catch(e){

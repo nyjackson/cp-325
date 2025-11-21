@@ -2,6 +2,8 @@
 import ClientAccount from "../models/clientAccount.js";
 import EmployeeAccount from "../models/employeeAccount.js";
 import authController from "./authController.js";
+import jwt from 'jsonwebtoken'
+
 const displayInfo = async (req, res) => {
   try {
     //console.log("Grab logic for which account to grab and display info from.");
@@ -96,7 +98,8 @@ const deleteAccount = async (req, res) => {
 
 const clientSignIn = async (req, res) => {
   console.log("In Client Sign In")
-  console.log(result)
+  console.log(req.user)
+  if(req.user == undefined){ console.log("Invalid Password"); throw Error}
   try{
     
   }
@@ -129,6 +132,8 @@ const clientSignIn = async (req, res) => {
 
  const displayProfile = async (req,res) => {
     console.log(req.body)
+    const userInfo = req.user
+    console.log(userInfo)
     try{
       const user = ClientAccount.find({username})
       console.log(user)
