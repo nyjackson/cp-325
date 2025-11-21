@@ -16,6 +16,7 @@ function SignIn() {
     try{
       const connection = await fetch(BACKEND_URL+"/account/login/client", {method: "POST", body: JSON.stringify(user), headers: {'Content-Type':'application/json'}})
       const result = await connection.json()
+      console.log("Handle Login FrontEnd", result)
       //console.log("Handle Login", result)
       return //Successful Login
     }
