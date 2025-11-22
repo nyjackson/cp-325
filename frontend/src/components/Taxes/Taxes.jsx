@@ -11,7 +11,7 @@ function Taxes() {
         <TaxCard title = {"Tax Review"} price = {"$50+"} description = {"Complete your tax return and get it reviewed by a Tax Expert before submission."}/>
         <TaxCard title = {"Expertly File"} price = {"$80+"} description = {"Submit your individual or business tax forms and get your return completed by a Tax Expert."}/>
       </div>
-      <div style = {{"textAlign":"center"}}>
+      <div id = "tax-calc-banner">
       <h2>Not Sure Which Is Best? Take a Quiz for a recommedation.</h2>
       <button>Take The Quiz</button>
       </div>
