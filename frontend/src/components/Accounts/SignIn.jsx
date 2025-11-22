@@ -2,10 +2,13 @@ import { BACKEND_URL } from "../../App";
 import SignUp from "./SignUp";
 import {Link} from 'react-router'
 import {useRef} from 'react'
-
+import {useDispatch} from 'react-redux'
+import { setUser, setLoginStatus, selectLoginStatus } from "./accountSlice";
+import Account from "./Account";
 
 function SignIn() {
   const formRef = useRef()
+  const dispatch = useDispatch()
 
   async function handleLogin(e) {
     e.preventDefault()
@@ -17,8 +20,9 @@ function SignIn() {
       const connection = await fetch(BACKEND_URL+"/account/login/client", {method: "POST", body: JSON.stringify(user), headers: {'Content-Type':'application/json'}})
       const result = await connection.json()
       console.log("Handle Login FrontEnd", result)
-      //console.log("Handle Login", result)
-      return //Successful Login
+      dispatch(setUser({...result.user[0]}))
+      dispatch(setLoginStatus({payload:true}))
+      return  //Successful Login
     }
     catch(e){
       console.log(e)
@@ -50,7 +54,8 @@ function SignIn() {
         <button onClick = {handleLogin}>Sign In</button> 
         <Link to = "/register" element = {<SignUp />}>Don't have an account?</Link>
   </form>
-    
+  
+    {selectLoginStatus ? <Account/> : ''}
   
   </>);
 }

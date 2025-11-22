@@ -112,16 +112,15 @@ const clientSignIn = async (req, res) => {
   console.log("In Client Sign In")
   console.log(req.user)
   if(req.user == undefined){ console.log("Invalid Password. Try Again."); throw Error}
-
   try{
   const getToken = await authController.getToken(req.user)
   res.status(200).json({token: getToken, user: req.user})
+  //res.redirect('/account/profile')
   }
   catch(e){
     console.log(e)
   }
-
- 
+};
 
   // try {
   //   console.log(req);
@@ -142,8 +141,6 @@ const clientSignIn = async (req, res) => {
   //   console.log(e);
   //   res.status(404).send({ message: e.message }); // body: (username entered)
   // }
-};
-
 const deleteUser = async (req,res) => {
   req.client_type == "client" ? deleteClientAccount : deleteEmployeeAccount;
 }
