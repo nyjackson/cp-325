@@ -2,8 +2,8 @@
 import mongoose from "mongoose";
 
 const clientAccountSchema = mongoose.Schema({
-  client_first_name: {type:String, required: true},
-  client_last_name: {type: String, required :true},
+  first_name: {type:String, required: true},
+  last_name: {type: String, required :true},
   username: {type:String, required:true},
   password: {type: String, required:true},
   contact:{type:Object, required: true}, // {phone_number: {cell: "973-325-3425", work: "294-342-5789", home: "342-734-8562"}
