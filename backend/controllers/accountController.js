@@ -2,7 +2,7 @@
 import ClientAccount from "../models/clientAccount.js";
 import EmployeeAccount from "../models/employeeAccount.js";
 import authController from "./authController.js";
-import mongoose from "mongoose";
+
 const displayInfo = async (req, res) => {
   try {
     //console.log("Grab logic for which account to grab and display info from.");
@@ -103,7 +103,21 @@ const editClientDetails = async (req,res) => {
   }
 }
 
+const editEmployeeDetails = async (req,res) => {
+ const username = req.body.username
+  try{
+    const originalDetails = await EmployeeAccount.find({username})
+    const updateConnection = await EmployeeAccount.updateOne({username}, {$set: {...req.body}})
+    const newDetails = await EmployeeAccount.find({username})
+    console.log(updateConnection)
+    res.status(200).json({message: "Employee details edited.", originalInfo: originalDetails, updatedInfo: newDetails, result: updateConnection})
 
+  }
+  catch(e){
+    console.log(e)
+    res.status(404).json({message:"Unable to make request. Try Again.", body: req.body})
+  }
+}
 
 // User Deletion
 const deleteClientAccount = async (req, res) => {
@@ -119,9 +133,9 @@ const deleteClientAccount = async (req, res) => {
 };
 
 const deleteEmployeeAccount = async(req,res) => {
-  const id = req.body._id
+  const username = req.body.username
   try{
-    const employeeToDelete = EmployeeAccount.deleteOne({id})
+    const employeeToDelete = await EmployeeAccount.deleteOne({username})
     //move to old employee accounts collection? Do we want to keep past data? 
     res.status(200).json({message: "Employee successfully deleted.", userDeleted: employeeToDelete})
   }
@@ -195,5 +209,7 @@ export default {
   displayProfile,
   deleteUser, 
   editClientDetails,
-  deleteClientAccount
+  deleteClientAccount,
+  editEmployeeDetails,
+  deleteEmployeeAccount
 };

@@ -17,7 +17,10 @@ router.post('/login/client', authController.validate, accountController.clientSi
 router.get('/profile', accountController.displayProfile)
 
 router.put('/edit/client', accountController.editClientDetails)
+router.put('/edit/employee', accountController.editEmployeeDetails)
 
 router.delete('/delete', accountController.deleteUser)
 router.delete('/delete/client', accountController.deleteClientAccount)
+router.delete('/delete/employee', accountController.deleteEmployeeAccount)
+
 export default router;
