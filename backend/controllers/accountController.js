@@ -2,7 +2,7 @@
 import ClientAccount from "../models/clientAccount.js";
 import EmployeeAccount from "../models/employeeAccount.js";
 import authController from "./authController.js";
-
+import mongoose from "mongoose";
 const displayInfo = async (req, res) => {
   try {
     //console.log("Grab logic for which account to grab and display info from.");
@@ -43,6 +43,7 @@ const displayClients = async (req, res) => {
   }
 };
 
+// User Creation
 const addClient = async (req, res) => {
   console.log("Password Entered:", req.body.password);
   const hashedPassword = await authController.genHash(req.body.password);
@@ -83,12 +84,34 @@ const addEmployee = async (req, res) => {
   }
 };
 
+// User Edit
+
+const editClientDetails = async (req,res) => {
+  console.log(req)
+  const username = req.body.username
+  try{
+    const originalDetails = await ClientAccount.find({username})
+    const updateConnection = await ClientAccount.updateOne({username}, {$set: {...req.body}})
+    const newDetails = await ClientAccount.find({username})
+    console.log(updateConnection)
+    res.status(200).json({message: "Client details edited.", originalInfo: originalDetails, updatedInfo: newDetails, result: updateConnection})
+
+  }
+  catch(e){
+    console.log(e)
+    res.status(404).json({message:"Unable to make request. Try Again.", body: req.body})
+  }
+}
+
+
+
+// User Deletion
 const deleteClientAccount = async (req, res) => {
-  const id = req.body._id 
+  const username = req.body.username
   try {
-    const clientToDelete = ClientAccount.deleteOne({id})
+    const clientToDelete = await ClientAccount.deleteOne({username})
     console.log(clientToDelete)
-    res.status(200).json({message: "Client successfully deleted.", userDeleted: clientToDelete})
+    res.status(200).json({message: "Client successfully deleted.", userDeleted: username, data: clientToDelete})
   } catch (e) {
     console.log(e);
     res.status(404).json({message: "Client not found. Successfully deleted and/or does not exist.", body: req.body})
@@ -107,7 +130,25 @@ const deleteEmployeeAccount = async(req,res) => {
     res.status(404).json({message: "Employee not found. Successfully deleted and/or does not exist.", body: req.body})
   }
 }
+const deleteUser = async (req,res) => {
+  req.client_type == "client" ? deleteClientAccount : deleteEmployeeAccount;
+}
 
+ const displayProfile = async (req,res) => {
+    console.log(req.body)
+    const userInfo = req.user
+    console.log(userInfo)
+    try{
+      const user = ClientAccount.find({username})
+      console.log(user)
+    }
+    catch(e){
+      console.log(e)
+    }
+    
+  }
+
+// Sign In Logic
 const clientSignIn = async (req, res) => {
   console.log("In Client Sign In")
   console.log(req.user)
@@ -141,23 +182,8 @@ const clientSignIn = async (req, res) => {
   //   console.log(e);
   //   res.status(404).send({ message: e.message }); // body: (username entered)
   // }
-const deleteUser = async (req,res) => {
-  req.client_type == "client" ? deleteClientAccount : deleteEmployeeAccount;
-}
 
- const displayProfile = async (req,res) => {
-    console.log(req.body)
-    const userInfo = req.user
-    console.log(userInfo)
-    try{
-      const user = ClientAccount.find({username})
-      console.log(user)
-    }
-    catch(e){
-      console.log(e)
-    }
-    
-  }
+
 
 export default {
   displayInfo,
@@ -167,5 +193,7 @@ export default {
   addClient,
   clientSignIn,
   displayProfile,
-  deleteUser
+  deleteUser, 
+  editClientDetails,
+  deleteClientAccount
 };

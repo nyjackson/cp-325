@@ -24,8 +24,9 @@ export const accountSlice = createSlice({
       return {...action.payload}
     },
     setLoginStatus: (state, action) => {
-      console.log("In setLoginStatus, state is:",state.account)
-      console.log("In setLoginStatus, isLoggedIn is:",state.account.isLoggedIn)
+      console.log("Setting the Login Status")
+      console.log(state)
+      console.log(action)
       return !state.isLoggedIn
     }
     // decrement: (state) => {

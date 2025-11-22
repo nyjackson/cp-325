@@ -12,8 +12,8 @@ function SignUp() {
     e.preventDefault();
     console.log("handle Sign Up Form Submission");
     const newAccount = {
-      "client_first_name": formRef.current[0].value,
-      "client_last_name": formRef.current[1].value,
+      "first_name": formRef.current[0].value,
+      "last_name": formRef.current[1].value,
       "contact": {"email":formRef.current[2].value , "phone":formRef.current[3].value},
       "username": formRef.current[4].value,
       "password": formRef.current[5].value, // add password logic here. (encrypt before transit)

@@ -9,6 +9,7 @@ return(
             <li>File Your Taxes</li>
             <li>Resources</li>
             <li>About Us</li>
+            <li>Employee Login</li>
             <p>&copy;Song Dynasty Corp.</p>
         </ul>
     </footer>

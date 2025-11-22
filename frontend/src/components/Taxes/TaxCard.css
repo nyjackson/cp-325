@@ -47,6 +47,11 @@ button{
     margin-top: 1rem;
 }
 
+button:hover{
+    transform: translateY(-.1rem);
+    box-shadow: .1rem .1rem var(--accent-gold);
+}
+
 #tax-calc-banner{
     color: var(--primary-maroon);
     font-size: 1.3rem;

@@ -26,7 +26,6 @@ function SignIn() {
     }
     catch(e){
       console.log(e)
-      // Invalid Login, Try Again
     }
   }
   return (
