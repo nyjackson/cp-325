@@ -1,10 +1,30 @@
-footer{
-    width:auto;
-    padding:0% .5% .1%;
-    text-align: center;
-    background-color:maroon ;
-    color:white;
+:root {
+    --primary-charcoal: #2C2C2C;
+    --border-gray: #DDDDDD;
 }
+
+footer{
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    background-color: white;
+    color: var(--primary-charcoal);
+    border-top: 1px solid var(--border-gray);
+}
+
 footer > ul {
     list-style: none;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+footer li {
+    margin: 0.4rem 0;
+}
+
+footer p {
+    font-size: 0.85rem;
+    color: #666666;
 }

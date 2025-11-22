@@ -1,18 +1,48 @@
+:root {
+    --primary-maroon: #8B0000;
+    --primary-charcoal: #2C2C2C;
+    --accent-gold: #D4AF37;
+    --border-gray: #DDDDDD;
+    --light-gray: #F5F5F5;
+}
+
 .tax-offering{
-    padding:1%;
-    border:1px solid black;
-    margin:1%;
-    border-radius:15%;
+    padding: 2rem;
+    border: 1px solid var(--border-gray);
+    margin: 1rem;
+    border-radius: 2px;
     font-family: "Spectral", serif;
-    box-shadow:2px 2px 2px;
-    width:33%;
+    width: 33%;
+    background-color: white;
+}
+
+.tax-offering h1 {
+    color: var(--primary-maroon);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.tax-offering h2 {
+    color: var(--accent-gold);
+    font-size: 1.6rem;
+    margin: 0.8rem 0;
+}
+
+.tax-offering p {
+    color: var(--primary-charcoal);
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 .tax-offering > button{
-padding:1% 10%;
-font-family: "Nanum Myeongjo", serif;
-font-weight:bold;
-letter-spacing: 1px;
+    padding: 0.8rem 1.8rem;
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: bold;
+    background-color: var(--primary-maroon);
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-top: 1rem;
 }
-
- 

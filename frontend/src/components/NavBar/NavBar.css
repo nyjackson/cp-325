@@ -1,43 +1,65 @@
 :root{
-    /*Place primary, secondary and accent colors here*/
+    --primary-maroon: #8B0000;
+    --primary-charcoal: #2C2C2C;
+    --accent-gold: #D4AF37;
+    --border-gray: #DDDDDD;
 }
 
 #nav-bar{
-    display:flex;
-    width:100%;
-    border-bottom: 1px solid black;
+    display: flex;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid var(--border-gray);
     font-family: "TASA Explorer", sans-serif;
+    padding: 0;
+    align-items: center;
 }
 
 #company-name{
-margin-right:6%;
-margin-left:2%;
-text-decoration: none;
-color:maroon;
+    margin-right: auto;
+    margin-left: 2%;
+    text-decoration: none;
+    color: var(--primary-maroon);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+#company-name {
+    padding: 1rem 0;
+}
+#company-name:hover {
+    color: var(--accent-gold);
 }
 
 #nav-links{
-    display:flex;
-    border:1px solid black;
-    width:70%;
+    display: flex;
+    border: none;
+    width: auto;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
     list-style: none;
+    gap: 2rem;
+    padding-right: 2%;
+    margin: 0;
 }
 
 #account-btn{
-    background-color:maroon;
-    color:white;
-    padding:1%;
-    border-radius:4%;
+    background-color: var(--primary-maroon);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
 }
 
 .link {
     list-style: none;
-    color:black;
+    color: var(--primary-charcoal);
     text-decoration: none;
+    font-size: 0.95rem;
 }
+
 .link:hover{
-    color:crimson;
+    color: var(--primary-maroon);
     text-decoration: underline;
 }

@@ -21,7 +21,7 @@ function SignIn() {
       const result = await connection.json()
       console.log("Handle Login FrontEnd", result)
       dispatch(setUser({...result.user[0]}))
-      dispatch(setLoginStatus({payload:true}))
+      dispatch(setLoginStatus())
       return  //Successful Login
     }
     catch(e){
@@ -54,7 +54,7 @@ function SignIn() {
         <button onClick = {handleLogin}>Sign In</button> 
         <Link to = "/register" element = {<SignUp />}>Don't have an account?</Link>
   </form>
-  
+
     {selectLoginStatus ? <Account/> : ''}
   
   </>);
