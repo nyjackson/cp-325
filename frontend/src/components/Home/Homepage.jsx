@@ -2,6 +2,7 @@ import './Homepage.css'
 import Hero from '../Hero';
 import {useEffect, useState} from 'react'
 import { BACKEND_URL } from '../../App';
+import MessageBox from '../MessageBox';
 
 function Homepage() {
 const countdownDate = new Date("Jan 27, 2026 00:00:00").getTime()
@@ -21,7 +22,7 @@ setInterval(()=>{
         <h2>Days Until Tax Season 1/27:{countTilTaxSeason} days</h2>
         <h3>Do you have all your tax forms?</h3>
       </div>
-      
+      <MessageBox />
     </div>
   );
 }

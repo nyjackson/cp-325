@@ -4,7 +4,6 @@ function Footer(){
 return(
     <footer>
         <ul>
-            <li>File Your Taxes</li>
             <Link className = "footer-link" to = "/resources">Resources</Link>
             <Link className = "footer-link" to = "/about">About Us</Link>
             <Link className = "footer-link" to = "/employee-login">Employee Login</Link>

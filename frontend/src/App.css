@@ -10,7 +10,7 @@
     background-color: var(--primary-maroon);
     color: white;
     height: auto;
-    width: 95%;
+    width: auto;
     margin: 0;
     padding: 1rem 1rem;
     text-align: center;
@@ -156,4 +156,19 @@ form > input:focus {
 
 #pricing{
     font-family: "Nanum Myeongjo", serif;
+}
+
+.message-box{
+    width:50rem;
+    padding:.5rem;
+    background-color: var(--light-gray);
+    border-radius:1rem;
+    display: block;
+    margin:1rem auto;
+    font-family: "TASA Explorer", sans-serif;
+}
+
+.message-box > h3{
+    text-align:center;
+    opacity: 80%;
 }

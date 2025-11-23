@@ -8,11 +8,38 @@
 
 #article-listing{
     display:flex;
+    width:auto;
+    border:1px solid rgb(138, 94, 209);
 }
 
 #featured{
     width:60%;
-    border-right: 1px solid black;
-    margin-right:1%;
-    margin-left:1%;
+    border-right: 1px solid rgb(189, 175, 175);
+    padding-right:1%;
+    padding-left:1%;
+    font-family: "Nanum Myeongjo", serif;
+    color:var(--primary-charcoal);
+    background-color: var(--light-gray);
+}
+
+#featured > p {
+    font-weight:bolder;
+}
+
+#other-articles{
+display:flex;
+flex-direction:column;
+width:35%;
+list-style-type:none;
+color:var(--primary-maroon);
+font-family: "TASA Explorer", sans-serif;
+}
+
+#other-articles > li{
+    padding-bottom:1rem;
+}
+
+#other-articles > li:hover{
+    color:var(--accent-gold);
+    cursor: pointer;
 }

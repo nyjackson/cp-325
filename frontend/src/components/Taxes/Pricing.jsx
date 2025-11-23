@@ -11,12 +11,8 @@ function Pricing() {
           <h2>Base Price: $50</h2>
         </div>
          <div className="tax-offering">
-          <h1>Married Filed Jointly</h1>
+          <h1>Married Filed Separately/Jointly</h1>
           <h2>Base Price: $100</h2>
-        </div>
-         <div className="tax-offering">
-          <h1>Married Filed Separately</h1>
-          <h2>Base Price: $150</h2>
         </div>
       </div>
       <h2>Expert Filing</h2>
@@ -26,12 +22,8 @@ function Pricing() {
           <h2>Base Price: $80</h2>
         </div>
          <div className="tax-offering">
-          <h1>Married Filed Jointly</h1>
-          <h2>Base Price: $160</h2>
-        </div>
-         <div className="tax-offering">
-          <h1>Married Filed Separately</h1>
-          <h2>Base Price: $180</h2>
+          <h1>Married Filed Separately/Jointly</h1>
+          <h2>Base Price: $100</h2>
         </div>
       </div>
       <h2>Other Services</h2>
