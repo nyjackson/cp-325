@@ -4,6 +4,7 @@ import {editProfile, linkAccount, delinkAccount, test, selectUser, selectLoginSt
 import Hero from '../Hero'
 function Account(){
     const user = useSelector(selectUser)
+    const loginStatus = useSelector(selectLoginStatus)
     const dispatch = useDispatch()
     
     useEffect(()=> {
@@ -12,7 +13,7 @@ function Account(){
 
 console.log("In Account Component, getting user:", user)
 return(<>
-{!selectLoginStatus ? <Hero title = {`Welcome Back!`}/> : ''}
+{loginStatus ? <Hero title = {`Welcome Back ${user.first_name}!`}/> : ''}
 
 </>)
 }

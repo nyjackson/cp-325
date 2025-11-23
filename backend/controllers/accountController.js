@@ -197,7 +197,9 @@ const clientSignIn = async (req, res) => {
   //   res.status(404).send({ message: e.message }); // body: (username entered)
   // }
 
-
+const signout = async (req,res) =>  {
+  
+  }
 
 export default {
   displayInfo,
@@ -211,5 +213,6 @@ export default {
   editClientDetails,
   deleteClientAccount,
   editEmployeeDetails,
-  deleteEmployeeAccount
+  deleteEmployeeAccount,
+  signout
 };

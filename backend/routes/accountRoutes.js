@@ -23,4 +23,6 @@ router.delete('/delete', accountController.deleteUser)
 router.delete('/delete/client', accountController.deleteClientAccount)
 router.delete('/delete/employee', accountController.deleteEmployeeAccount)
 
+router.get('/signout', accountController.signout)
+
 export default router;

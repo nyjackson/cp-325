@@ -20,14 +20,15 @@ export const accountSlice = createSlice({
     },
     setUser: (state, action) => {
       console.log("Setting User to..", action.payload)
-      //state.accountUser = {...action.payload}
-      return {...action.payload}
+      state.accountUser = {...action.payload}
+      return 
     },
     setLoginStatus: (state, action) => {
       console.log("Setting the Login Status")
       console.log(state)
       console.log(action)
-      return !state.isLoggedIn
+      state.isLoggedIn = action.payload
+      return 
     }
     // decrement: (state) => {
     //   state.value -= 1;
