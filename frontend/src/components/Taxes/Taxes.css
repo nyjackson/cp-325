@@ -37,7 +37,7 @@
 .service-offering{
     width:10rem;
 }
-button{
+button,.tlink{
     padding: 0.8rem 1.8rem;
     font-family: "Nanum Myeongjo", serif;
     font-weight: bold;
@@ -48,11 +48,14 @@ button{
     cursor: pointer;
     font-size: 0.95rem;
     margin-top: 1rem;
+    text-decoration: none;
 }
 
-button:hover{
+button:hover,.tlink:hover{
     transform: translateY(-.1rem);
     box-shadow: .1rem .1rem var(--accent-gold);
+    text-decoration: none;
+    color: white;
 }
 
 #tax-calc-banner{

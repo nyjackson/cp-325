@@ -14,7 +14,7 @@ function Taxes() {
       </div>
       <div id = "tax-calc-banner">
       <h2>Not Sure Which Is Best? Take a quiz for a recommendation.</h2>
-      <Link to = "/quiz" className = "link">Take The Quiz</Link>
+      <Link to = "/quiz" className = "tlink">Take The Quiz</Link>
       </div>
       <div id = "review-gallery">
         <h2>Reviews Here</h2>

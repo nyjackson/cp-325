@@ -142,6 +142,7 @@ form > input:focus {
 
 #team-gallery > img{
     width:9rem;
+    object-fit: fill;
 }
 
 /*Account > Admin Component*/
