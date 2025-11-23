@@ -23,3 +23,5 @@ export default NavBar
 
 
 {/* <Link to = "/" className = "link">Song Dynasty</Link> */}
+// const navbarRegular = ["Tax Filing", "Pricing", "Resources", "About", "Search"]
+// const navbarAccount = ["Tax Filing, "Appointments", "Resources", "Search"]
