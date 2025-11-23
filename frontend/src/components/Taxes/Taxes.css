@@ -34,6 +34,9 @@
     line-height: 1.5;
 }
 
+.service-offering{
+    width:10rem;
+}
 button{
     padding: 0.8rem 1.8rem;
     font-family: "Nanum Myeongjo", serif;
@@ -58,4 +61,13 @@ button:hover{
     margin-bottom: 0.8rem;
     font-family: "Nanum Myeongjo", serif;
     text-align: center;
+}
+
+.price-gallery{
+    display:flex;
+    width:100%;
+}
+
+#pricing > h2{
+    margin-left:1rem;
 }

@@ -30,6 +30,18 @@
     opacity: 0.95;
 }
 
+/*Taxes Component*/
+#tax-options{
+    display: flex;
+    border: none;
+    text-align: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background-color: var(--light-gray);
+    justify-content: center;
+}
+
+/* Forms: Sign In, Sign Out, Employee Login, Sign Up Components */
 form > input{
     width: 50%;
     border: 1px solid var(--border-gray);
@@ -42,16 +54,6 @@ form > input:focus {
     outline: none;
     border: 1px solid var(--primary-maroon);
     background-color: #FAFAFA;
-}
-
-#tax-options{
-    display: flex;
-    border: none;
-    text-align: center;
-    gap: 2rem;
-    padding: 3rem 2rem;
-    background-color: var(--light-gray);
-    justify-content: center;
 }
 
 #sign-in, #sign-up {
@@ -115,6 +117,7 @@ form > input:focus {
     width: 100%;
 }
 
+/*About Component*/
 #about{
     padding:1%;
     font-family: "TASA Explorer", sans-serif;
@@ -135,14 +138,21 @@ form > input:focus {
     display:flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items:space-between;
 }
 
 #team-gallery > img{
     width:9rem;
 }
 
+/*Account > Admin Component*/
 #user-lists{
     display:flex;
     justify-content: space-evenly;
+}
+
+
+/*Pricing Component*/
+
+#pricing{
+    font-family: "Nanum Myeongjo", serif;
 }

@@ -5,8 +5,8 @@ return(
     <footer>
         <ul>
             <li>File Your Taxes</li>
-            <li>Resources</li>
-            <li>About Us</li>
+            <Link className = "footer-link" to = "/resources">Resources</Link>
+            <Link className = "footer-link" to = "/about">About Us</Link>
             <Link className = "footer-link" to = "/employee-login">Employee Login</Link>
             <p>&copy;Song Dynasty Corp.</p>
         </ul>

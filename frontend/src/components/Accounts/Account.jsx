@@ -70,7 +70,7 @@ function Account() {
           <p>
             {user.curr_appts?.length > 0
               ? `Upcoming Appointments: ${user.curr_appts[0]}`
-              : ""}
+              : <button>Schedule An Appointment</button>}
           </p>
         </div>
       ) : (

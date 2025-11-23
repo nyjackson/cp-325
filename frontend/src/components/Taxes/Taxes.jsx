@@ -15,7 +15,9 @@ function Taxes() {
       <h2>Not Sure Which Is Best? Take a quiz for a recommendation.</h2>
       <button>Take The Quiz</button>
       </div>
-      
+      <div id = "review-gallery">
+        <h2>Reviews Here</h2>
+      </div>
     </>
   );
 }
