@@ -2,18 +2,21 @@ import './NavBar.css'
 import {useSelector} from 'react-redux'
 import {Link} from 'react-router'
 import { selectLoginStatus } from '../Accounts/accountSlice'
+import { useEffect } from 'react'
 function NavBar(){
 const loginStatus = useSelector(selectLoginStatus)
+useEffect(()=> {}, [loginStatus])
 return(<div id ="nav-bar">
     <Link to = "/" className = "link" id = "company-name">Song Dynasty</Link> 
     <ul id = "nav-links">
     <Link to = "/tax" className = "link">Tax Filing</Link>
     <Link to = "/pricing" className = "link">Pricing</Link>
     <Link to = "/resources" className = "link">Resources</Link>
+    <Link to = "/about" className = "link">About Us</Link>
     <li>Search</li>
     {loginStatus ? <Link id = "account-btn" to = "/account" className = "link">Account</Link> : ''}
     {!loginStatus ? <Link id = "account-btn" to = "/register" className = "link">Sign Up/Sign In</Link> : 
-    <Link id = "account-btn" to = "/sign-out" className = "link">Sign Out</Link>}
+    <Link id = "account-btn" to = "/signout" className = "link">Sign Out</Link>}
     
 </ul>
 </div>)

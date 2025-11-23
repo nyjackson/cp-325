@@ -12,7 +12,7 @@
     height: auto;
     width: 95%;
     margin: 0;
-    padding: 3rem 2rem;
+    padding: 1rem 1rem;
     text-align: center;
     font-family: "Nanum Myeongjo", serif;
     border-bottom: 1px solid var(--accent-gold);
@@ -113,4 +113,19 @@ form > input:focus {
 
 #sign-up > label, input {
     width: 100%;
+}
+
+#about{
+    padding:1%;
+    font-family: "TASA Explorer", sans-serif;
+    width:95%;
+}
+#intro{
+    display:flex;
+    padding-bottom:1rem;
+    border-bottom: .1rem solid #2C2C2C;
+}
+#president-img{
+    margin-right:1rem;
+    width:10rem;
 }

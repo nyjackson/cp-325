@@ -12,6 +12,7 @@ import SignIn from './components/Accounts/SignIn'
 import Account from './components/Accounts/Account'
 import Resources from './Resources/Resources'
 import SignOut from './components/Accounts/SignOut'
+import About from './components/About'
 
 export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 //console.log(backendURL)
@@ -25,10 +26,12 @@ function App() {
         <Route path = "/" element = {<Homepage/>}/>
         <Route path = "/tax" element = {<Taxes/>}/>
         <Route path = "/pricing" element = {<Pricing/>}/>
+        <Route path = "/resources" element = {<Resources />}/>
+        <Route path = "/about" element = {<About/>}/>
+        
         <Route path = "/register" element = {<SignUp />}/>
         <Route path = "/login" element = {<SignIn />}/>
         <Route path = "/account" element = {<Account />}/>
-        <Route path = "/resources" element = {<Resources />}/>
         <Route path = "/signout" element = {<SignOut />}/>
       </Routes>
       <Footer/>

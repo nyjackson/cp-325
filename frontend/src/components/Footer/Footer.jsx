@@ -4,7 +4,6 @@ import {Link} from 'react'
 function Footer(){
 return(
     <footer>
-        <hr></hr>
         <ul>
             <li>File Your Taxes</li>
             <li>Resources</li>
