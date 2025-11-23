@@ -7,7 +7,7 @@ import {
   test,
   selectUser,
   selectLoginStatus,
-} from "./accountSlice";
+} from "../slices/accountSlice";
 import Hero from "../Hero";
 import { BACKEND_URL } from "../../App";
 

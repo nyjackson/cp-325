@@ -187,4 +187,5 @@ form > input:focus {
 .message-box > h4 {
    position:relative;
    bottom:1.4rem;
+   cursor: pointer;
 }

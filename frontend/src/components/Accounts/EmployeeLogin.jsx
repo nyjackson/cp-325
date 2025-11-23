@@ -2,7 +2,7 @@ import { BACKEND_URL } from "../../App";
 import Account from "./Account";
 import {useRef} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { selectLoginStatus, setUser, setLoginStatus } from "./accountSlice";
+import { selectLoginStatus, setUser, setLoginStatus } from "../slices/accountSlice";
 function EmployeeLogin(){
 
   const formRef = useRef()

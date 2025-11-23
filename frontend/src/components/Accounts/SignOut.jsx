@@ -1,7 +1,7 @@
 import SignIn from "./SignIn";
 import {useEffect} from 'react'
 import {useDispatch} from 'react-redux'
-import { setUser, setLoginStatus } from "./accountSlice";
+import { setUser, setLoginStatus } from "../slices/accountSlice";
 
 function SignOut(){
     const dispatch = useDispatch()

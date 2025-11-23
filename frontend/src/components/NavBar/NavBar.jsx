@@ -1,7 +1,7 @@
 import './NavBar.css'
 import {useSelector} from 'react-redux'
 import {Link} from 'react-router'
-import { selectLoginStatus, setLoginStatus, setUser } from '../Accounts/accountSlice'
+import { selectLoginStatus, setLoginStatus, setUser } from '../slices/accountSlice'
 import { useEffect } from 'react'
 function NavBar(){
 const loginStatus = useSelector(selectLoginStatus)

@@ -1,11 +1,16 @@
 import SignIn from "./SignIn";
 import { Link } from "react-router";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { BACKEND_URL } from "../../App";
 
 function SignUp() {
-
+  
   const formRef = useRef();
+  const [showError, setError] = useState(false)
+
+  useEffect(()=>{
+
+  },[showError])
 
   async function handleForm(e) {
     e.preventDefault();
@@ -28,7 +33,9 @@ function SignUp() {
     }
     catch(e){
       console.log("Error Detected", e)
+      setError(true)
     }
+    setError(false)
   }
 
   return (
@@ -116,7 +123,7 @@ function SignUp() {
       </Link>
       </form>
 
-      
+      {/* {showError ? <MessageBox message = {{type: "?", content: "Enter missing information"}}/> : ''} */}
     </>
   );
 }
