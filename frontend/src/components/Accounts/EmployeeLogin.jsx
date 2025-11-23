@@ -1,12 +1,10 @@
 import { BACKEND_URL } from "../../App";
-import SignUp from "./SignUp";
-import {Link} from 'react-router'
+import Account from "./Account";
 import {useRef} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { setUser, setLoginStatus, selectLoginStatus } from "./accountSlice";
-import Account from "./Account";
+import { selectLoginStatus, setUser, setLoginStatus } from "./accountSlice";
+function EmployeeLogin(){
 
-function SignIn() {
   const formRef = useRef()
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(selectLoginStatus)
@@ -17,8 +15,9 @@ function SignIn() {
       username: formRef.current[0].value,
       password: formRef.current[1].value
     }
+    console.log(user)
     try{
-      const connection = await fetch(BACKEND_URL+"/account/login/client", {method: "POST", body: JSON.stringify(user), headers: {'Content-Type':'application/json'}})
+      const connection = await fetch(BACKEND_URL +"/account/login/employee", {method: "POST", body: JSON.stringify(user), headers: {'Content-Type':'application/json'}})
       const result = await connection.json()
       console.log("Handle Login FrontEnd", result)
       localStorage.setItem("token",result.token)
@@ -34,8 +33,8 @@ function SignIn() {
   <>
   
   {!isLoggedIn ? <form ref = {formRef} onSubmit = {handleLogin} id = "sign-in">
-    <h1>Client Sign In</h1>
-        <label htmlFor="uname">Username, Email, or Phone Number: </label>
+    <h1>Employee Sign In</h1>
+        <label htmlFor="uname">Username or Email: </label>
         <input
           type="text"
           id="uname"
@@ -53,7 +52,6 @@ function SignIn() {
         />
         <br></br>
         <button>Sign In</button> 
-        <Link to = "/register" element = {<SignUp />}>Don't have an account?</Link>
   </form> : ''}
 
     {isLoggedIn ? <Account/> : ''}
@@ -61,7 +59,4 @@ function SignIn() {
   </>);
 }
 
-export default SignIn;
-
-
-//dispatch(setLoginStatus(true))
+export default EmployeeLogin

@@ -1,4 +1,3 @@
-import Account from "./Account";
 import SignIn from "./SignIn";
 import { Link } from "react-router";
 import { useRef } from "react";

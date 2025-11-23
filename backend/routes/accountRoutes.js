@@ -13,7 +13,8 @@ router.post('/register/employee', accountController.addEmployee)
 
 router.get('/', accountController.displayInfo)
 
-router.post('/login/client', authController.validate, accountController.clientSignIn) //middleware
+router.post('/login/client', authController.clientValidate, accountController.clientSignIn) //middleware
+router.post('/login/employee', authController.employeeValidate, accountController.clientSignIn) //middleware
 router.get('/profile', accountController.displayProfile)
 
 router.put('/edit/client', accountController.editClientDetails)

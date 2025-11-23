@@ -1,16 +1,14 @@
-import { BACKEND_URL } from "../../App";
 import SignIn from "./SignIn";
-import {Link} from 'react-router'
-import {useRef, useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import { setUser, setLoginStatus, selectLoginStatus } from "./accountSlice";
-import Account from "./Account";
+import {useEffect} from 'react'
+import {useDispatch} from 'react-redux'
+import { setUser, setLoginStatus } from "./accountSlice";
 
 function SignOut(){
     const dispatch = useDispatch()
 useEffect(() => {
     dispatch(setUser({}))
     dispatch(setLoginStatus(false))
+    localStorage.removeItem("token")
 }, [])
 return (
     <>

@@ -2,6 +2,7 @@
 import bcrypt from "bcrypt";
 import ClientAccount from "../models/clientAccount.js";
 import jwt from 'jsonwebtoken'
+import EmployeeAccount from "../models/employeeAccount.js";
 
 const saltRounds = 10;
 
@@ -33,7 +34,7 @@ const comparePass = async (userInputPass, storedHashPass) => {
       }
 };
 
-const validate = async (req, res, next) => {
+const clientValidate = async (req, res, next) => {
   
     const {username, password} = req.body
     console.log("In Validate")
@@ -44,6 +45,25 @@ const validate = async (req, res, next) => {
         console.log("Hashed Pass:", client[0].password.toString())
         const passCheck = await comparePass(password.toString(), client[0].password.toString()) // || password === client[0].password // remove or case, only for testing purposes
         passCheck ? req.user = client : ''
+        next()
+      }
+    catch(e){
+        console.log(e)
+        res.status(404).json({message:e.message})
+    }
+}
+
+const employeeValidate = async (req, res, next) => {
+  
+    const {username, password} = req.body
+    console.log("In Validate")
+    console.log(username, password)
+    try{
+        const employee = await EmployeeAccount.find({username}) // || await EmployeeAccount.find({username})
+        console.log(employee)
+        console.log("Hashed Pass:", employee[0].password.toString())
+        const passCheck = await comparePass(password.toString(), employee[0].password.toString()) // || password === client[0].password // remove or case, only for testing purposes
+        passCheck ? req.user = employee : ''
         next()
       }
     catch(e){
@@ -87,6 +107,6 @@ const getToken = async (user) => {
 //     });
 // }
 
-export default { genHash, comparePass, validate, getToken };
+export default { genHash, comparePass, clientValidate, employeeValidate, getToken };
 
 

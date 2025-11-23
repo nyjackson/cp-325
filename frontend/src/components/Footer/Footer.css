@@ -26,4 +26,15 @@ footer li {
 footer p {
     font-size: 0.85rem;
     color: #666666;
+    opacity:90%;
+}
+
+.footer-link {
+    list-style: none;
+    color: var(--primary-charcoal);
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
 }

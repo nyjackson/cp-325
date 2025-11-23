@@ -3,7 +3,14 @@ const bob = {
 }
 
 const bananaKickFlip = {
-
+    "first_name": "Banana",
+    "last_name": "Kickflip",
+    "username":"bkick",
+    "password":"kickflip",
+    "personal_contact": {"phone": "973-325-9859", "email": "bkickflipster@mail.com"},
+    "work_contact": {"phone": "778-995-6409", "email": "bkickflip@song-dynasty.com"},
+    "access_role": "Admin",
+    "certifications": ["CPA", "ITF", "CCP"]
 }
 
 
