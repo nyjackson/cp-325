@@ -141,3 +141,8 @@ form > input:focus {
 #team-gallery > img{
     width:9rem;
 }
+
+#user-lists{
+    display:flex;
+    justify-content: space-evenly;
+}
