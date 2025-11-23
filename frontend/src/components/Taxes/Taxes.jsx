@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import Hero from '../Hero'
 import TaxCard from "./TaxCard";
+import {Link} from 'react-router'
 
 function Taxes() {
   return (
@@ -13,7 +14,7 @@ function Taxes() {
       </div>
       <div id = "tax-calc-banner">
       <h2>Not Sure Which Is Best? Take a quiz for a recommendation.</h2>
-      <button>Take The Quiz</button>
+      <Link to = "/quiz" className = "link">Take The Quiz</Link>
       </div>
       <div id = "review-gallery">
         <h2>Reviews Here</h2>

@@ -14,6 +14,7 @@ import Resources from './Resources/Resources'
 import SignOut from './components/Accounts/SignOut'
 import About from './components/About'
 import EmployeeLogin from './components/Accounts/EmployeeLogin'
+import Quiz from './Resources/Quiz'
 
 export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 //console.log(backendURL)
@@ -34,6 +35,7 @@ function App() {
         <Route path = "/login" element = {<SignIn />}/>
         <Route path = "/account" element = {<Account />}/>
         <Route path = "/signout" element = {<SignOut />}/>
+        <Route path = "/quiz" element = {<Quiz />}/>
       </Routes>
       <Footer/>
     </>
@@ -41,3 +43,4 @@ function App() {
 }
 
 export default App
+///quiz

@@ -1,3 +1,11 @@
+:root {
+    --primary-maroon: #8B0000;
+    --primary-charcoal: #2C2C2C;
+    --accent-gold: #D4AF37;
+    --border-gray: #DDDDDD;
+    --light-gray: #F5F5F5;
+}
+
 #article-listing{
     display:flex;
 }
