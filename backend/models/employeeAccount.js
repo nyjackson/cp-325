@@ -1,4 +1,4 @@
-//import enums from "../enums";
+//import {EMP_ROLES} from "../enums";
 import mongoose from "mongoose";
 
 const employeeAccountSchema = mongoose.Schema({
@@ -9,7 +9,7 @@ const employeeAccountSchema = mongoose.Schema({
   personal_contact: { type: Object, required: true }, // {phone_number: {cell: "973-325-3425", work: "294-342-5789", home: "342-734-8562", email: "bobBobberson@mail.com"}
   work_contact: { type: Object, required: true }, // company_number, company_email
   joined_on: { type: Date, default: Date.now(), required: true },
-  // access_role: {type: enums.EMP_ROLES, required:true},
+  access_role: {type: String, required:true},
   certifications: { type: Array, required: true },
 });
 

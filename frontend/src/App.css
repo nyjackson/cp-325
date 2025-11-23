@@ -129,3 +129,15 @@ form > input:focus {
     margin-right:1rem;
     width:10rem;
 }
+
+#team-gallery{
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items:space-between;
+}
+
+#team-gallery > img{
+    width:9rem;
+}

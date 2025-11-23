@@ -3,6 +3,7 @@ import cors from 'cors'
 import 'dotenv/config'
 import connectDB from './db.js'
 import accountRoutes from './routes/accountRoutes.js'
+import articleRoutes from './routes/articleRoutes.js'
 
 const app = express()
 const port = process.env.PORT || 5000
@@ -19,6 +20,7 @@ app.use((req,res,next) => {
 
 // Routes
 app.use('/account', accountRoutes)
+app.use('/resources', articleRoutes)
 
 app.get('/', (req, res) => {
     res.status(200).send({message: "Grabbing all info", body:res.body})
