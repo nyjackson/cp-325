@@ -1,8 +1,13 @@
 
 function MessageBox(){
+
 return(
+<>
 <div className = "message-box">
-    <h3><span>!</span>: Message Here</h3>
-</div>)
+    <div className = "message"><span>?</span> <h3>Contact Support</h3> </div>
+    <h4>x</h4>
+</div>
+
+</>)
 }
 export default MessageBox

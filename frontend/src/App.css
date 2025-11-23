@@ -159,16 +159,32 @@ form > input:focus {
 }
 
 .message-box{
-    width:50rem;
+    display: flex;
+    justify-items: space-between;
+    width:30rem;
     padding:.5rem;
     background-color: var(--light-gray);
     border-radius:1rem;
-    display: block;
-    margin:1rem auto;
     font-family: "TASA Explorer", sans-serif;
+    margin:auto;
+    margin-bottom:1rem;
+}
+.message{
+    display: flex;
+    justify-content: center;
+    margin:1rem auto;
 }
 
-.message-box > h3{
-    text-align:center;
+.message > h3,span{
     opacity: 80%;
+}
+
+.message > span{
+    font-size: 3rem;
+    margin-right:1rem;
+}
+
+.message-box > h4 {
+   position:relative;
+   bottom:1.4rem;
 }
