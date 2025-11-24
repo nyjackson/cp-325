@@ -3,53 +3,80 @@ import { Link } from "react-router";
 import { useRef, useState, useEffect } from "react";
 import { BACKEND_URL } from "../../App";
 import MessageBox from "../MessageBox";
-import { makeError, makeWarning, setActive, selectMessage, displayMessageStatus } from "../slices/errorSlice";
+import {
+  makeError,
+  signupSuccess,
+  setActive,
+  selectMessage,
+  displayMessageStatus,
+} from "../slices/errorSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 function SignUp() {
-  
   const formRef = useRef();
-  const dispatch = useDispatch()
-  const messageBox = useSelector(selectMessage)
-  const showMessage = useSelector(displayMessageStatus)
-  useEffect(()=>{
+  const dispatch = useDispatch();
+  const messageBox = useSelector(selectMessage);
+  const showMessage = useSelector(displayMessageStatus);
+  useEffect(() => {
     //dispatch(setActive(false))
-    console.log("display message?", showMessage)
-    console.log("display message?", messageBox)
-  },[showMessage, messageBox])
+    console.log("display message?", showMessage);
+    console.log("display message?", messageBox);
+  }, [showMessage, messageBox]);
+
+  function clearForm() {
+    formRef.current[0].value = "";
+    formRef.current[1].value = "";
+    formRef.current[2].value = "";
+    formRef.current[3].value = "";
+    formRef.current[4].value = "";
+    formRef.current[5].value = "";
+    formRef.current[6].value = "";
+  }
 
   async function handleForm(e) {
     e.preventDefault();
     console.log("handle Sign Up Form Submission");
-    dispatch(setActive(false))
+    dispatch(setActive(false));
     const newAccount = {
-      "first_name": formRef.current[0].value,
-      "last_name": formRef.current[1].value,
-      "contact": {"email":formRef.current[2].value , "phone":formRef.current[3].value},
-      "username": formRef.current[4].value,
-      "password": formRef.current[5].value, // add password logic here. (encrypt before transit)
+      first_name: formRef.current[0].value,
+      last_name: formRef.current[1].value,
+      contact: {
+        email: formRef.current[2].value,
+        phone: formRef.current[3].value,
+      },
+      username: formRef.current[4].value,
+      password: formRef.current[5].value, // add password logic here. (encrypt before transit)
+    };
+    console.log(formRef);
+    console.log("display message?", showMessage);
+    console.log("display message?", messageBox);
+    try {
+      const connection = await fetch(BACKEND_URL + "/account/register/client", {
+        method: "POST",
+        body: JSON.stringify(newAccount),
+        headers: { "Content-Type": "application/json" },
+      });
+      const accountCreated = await connection.json();
+      if(accountCreated.message?.includes("Unable")) { throw Error(accountCreated.message)}
+      console.log("Account Creation Response",accountCreated)
+      dispatch(signupSuccess("Profile Created."));
+      dispatch(setActive(true));
+      clearForm();
+    } catch (e) {
+      // not reaching the catch even though the response is giving 404
+      console.log("Error Detected", e);
+      dispatch(makeError(e.message));
+      dispatch(setActive(true));
     }
-    console.log(formRef)
-    console.log("display message?", showMessage)
-    console.log("display message?", messageBox)
-    try{
-     const connection = await fetch(BACKEND_URL+"/account/register/client", {method: "post", body: JSON.stringify(newAccount), headers: {'Content-Type':'application/json'}})
-     const accountCreated = await connection.json()
-     if(connection.accountCreated.message[0] == "U" || connection.accountCreated == undefined) {throw new Error("Unable to create account, make sure all fields are filled before proceeding.") }
-    // console.log("Account Created:", accountCreated)
-     // reducer here to add the new account to accounts 
-    }
-    catch(e){ // not reaching the catch even though the response is giving 404
-      console.log("Error Detected", e)
-      dispatch(makeError(e.message))
-      dispatch(setActive(true))
+    finally{
+      window.scrollTo(0,0)
     }
   }
 
   return (
     <>
-      
-      <form ref={formRef} onSubmit={handleForm} id = "sign-up">
+      {showMessage ? <MessageBox {...messageBox} /> : ""}
+      <form ref={formRef} onSubmit={handleForm} id="sign-up">
         <h1> Client Sign Up Form</h1>
         <label htmlFor="fname">First Name: </label>
         <input
@@ -119,19 +146,17 @@ function SignUp() {
         />
         <br></br>
 
-        <button>
+        <button className="tax-btn">
           {/* <Link to="/account" element={<Account />}>
             Sign Up
           </Link> */}
           Sign Up
         </button>
         <Link to="/login" element={<SignIn />}>
-        {" "}
-        Have an account?
-      </Link>
+          {" "}
+          Have an account?
+        </Link>
       </form>
-
-      {showMessage ? <MessageBox {...messageBox}/> : ''}
     </>
   );
 }

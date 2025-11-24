@@ -10,12 +10,13 @@ import {
 } from "../slices/accountSlice";
 import Hero from "../Hero";
 import { BACKEND_URL } from "../../App";
+import Calendar from 'react-calendar'
 
 function Account() {
   const user = useSelector(selectUser);
   const loginStatus = useSelector(selectLoginStatus);
   const dispatch = useDispatch();
-  
+
   const [clientList, setClientList] = useState([])
   const [empList, setEmpList] = useState([]); //temp
   const [showList, setShowStatus] = useState(false)
@@ -50,7 +51,7 @@ function Account() {
   return (
     <>
       {loginStatus ? (
-        <div>
+        <div className = "account-details">
           <Hero title={`Welcome Back ${user.first_name}!`} />
           <h1>Account Details</h1>
           <p>
@@ -69,10 +70,12 @@ function Account() {
             {joinDate}
           </p>
           <p>
+            <button className = "tlink">Edit Profile Details</button>
             {user.curr_appts?.length > 0
               ? `Upcoming Appointments: ${user.curr_appts[0]}`
-              : <button>Schedule An Appointment</button>}
+              : <button className = "tlink">Schedule An Appointment</button>}
           </p>
+          
         </div>
       ) : (
         ""

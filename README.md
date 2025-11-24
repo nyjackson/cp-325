@@ -1,11 +1,17 @@
 ## Capstone 325: MERN Project
 
-MERN Stack final capstone project for Per Scholas 2025 RTT-48: Full Stack Development Course. 
+MERN Stack final capstone project for Per Scholas' 2025 RTT-48: Full Stack Development Course. 
 
-A culmination of all that I learned through the MERN course, Tax Tavern is a mock, tax-preparation site offering the ability...
+A culmination of all that I learned through the course, Tax Dynasty is a mock, tax-preparation site with a working backend, frontend interface with account creation and password encryption. 
 
 ## Relevant Links
 - [JIRA Project Board](https://nymjackson.atlassian.net/jira/software/projects/CPG/boards/1)
+
+## Features
+- Employee Login
+- Client Sign In and Sign Up
+- About, Pricing, Tax Filing, and Resources pages
+- Functional NavBar and Footer navigation
 
 ## Access
 - Live Backend: https://cp-325-backend.onrender.com
@@ -21,6 +27,7 @@ Pre-requisities:
 - Employee Admin Login:
     - Username: bkick
     - Password: kickflip
+
 - Client Login: 
     - Username: fauth
     - Password: fauth
@@ -43,6 +50,8 @@ Steps:
 
 ### /frontend
 - FrontEnd Implementation
-- React, Vite, CSS, HTML,
-### /backend
+- React, Vite, CSS, HTML
 
+### /backend
+- BackEnd Implementation
+- Mongoose, Node, Express

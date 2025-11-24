@@ -19,6 +19,12 @@ export const errorSlice = createSlice({
         state.message.content = action.payload
         return
     },
+    signupSuccess: (state,action) => {
+      console.log("In make error, payload is", action.payload)
+        state.message.type = "✓"
+        state.message.content = action.payload
+        return
+    },
     setActive : (state, action) => {
       console.log("In setActive", action.payload)
       console.log("State", state.message.active)
@@ -28,7 +34,7 @@ export const errorSlice = createSlice({
   }
 });
 
-export const { makeWarning, makeError, setActive } = errorSlice.actions;
+export const { makeWarning, makeError, setActive, signupSuccess } = errorSlice.actions;
 
 export const selectMessage = (state) => state.error.message; //slice.name.valueHere
 export const displayMessageStatus = (state) => state.error.message.active;

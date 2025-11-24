@@ -189,3 +189,11 @@ form > input:focus {
    bottom:1.4rem;
    cursor: pointer;
 }
+
+.account-details{
+    background-color: var(--light-gray);
+    padding-left:1rem;
+    font-family: "TASA Explorer", sans-serif;
+}
+
+

@@ -1,7 +1,3 @@
-/***\
- * _id (auto), name, 
- *
- */
 import enums from "../enums";
 import mongoose from "mongoose";
 

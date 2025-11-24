@@ -1,10 +1,5 @@
-/***\
- * _id, name, author, posted_on, edited_on, tags, content, imgs
- *
- *
- */
-
 import mongoose from "mongoose";
+
 const articleSchema = mongoose.Schema({
   article_name: { type: String, required: true },
   author: { type: String, required: true },
@@ -15,6 +10,7 @@ const articleSchema = mongoose.Schema({
   imgs: {type:Array}
 });
 
+articleSchema.index({"author":1})
 const Article = mongoose.model('articles', articleSchema)
 
 export default Article

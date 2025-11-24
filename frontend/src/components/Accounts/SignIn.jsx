@@ -52,7 +52,7 @@ function SignIn() {
           autoComplete="password"
         />
         <br></br>
-        <button>Sign In</button> 
+        <button className = "tax-btn">Sign In</button> 
         <Link to = "/register" element = {<SignUp />}>Don't have an account?</Link>
   </form> : ''}
 

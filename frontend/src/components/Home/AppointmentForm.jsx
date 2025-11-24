@@ -1,8 +1,15 @@
 import { useRef } from "react";
+// import {} from '../slices/appointmentSlice
 function AppointmentForm() {
   const aptForm = useRef();
-  function handleAppointment(e) {
+  async function handleAppointment(e) {
     e.preventDefault();
+    try{
+      
+    }
+    catch(e){
+
+    }
     // redirect to appointment scheduled page
   }
   return (
