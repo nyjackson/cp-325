@@ -15,6 +15,7 @@ function Account() {
   const user = useSelector(selectUser);
   const loginStatus = useSelector(selectLoginStatus);
   const dispatch = useDispatch();
+  
   const [clientList, setClientList] = useState([])
   const [empList, setEmpList] = useState([]); //temp
   const [showList, setShowStatus] = useState(false)
@@ -97,6 +98,10 @@ function Account() {
         </>
     )
         : ''}
+
+        {user.access_role == "Admin" || user.access_role == "Manager" ? 
+      (<button>Add New Employee</button>) : ''  
+      }
     </>
   );
 }

@@ -37,7 +37,7 @@
 .service-offering{
     width:10rem;
 }
-button,.tlink{
+.tax-btn,.tlink{
     padding: 0.8rem 1.8rem;
     font-family: "Nanum Myeongjo", serif;
     font-weight: bold;
@@ -51,7 +51,7 @@ button,.tlink{
     text-decoration: none;
 }
 
-button:hover,.tlink:hover{
+.tax-btn:hover,.tlink:hover{
     transform: translateY(-.1rem);
     box-shadow: .1rem .1rem var(--accent-gold);
     text-decoration: none;

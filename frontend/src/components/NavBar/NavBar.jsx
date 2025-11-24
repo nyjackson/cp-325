@@ -13,7 +13,7 @@ async function handleSearch(e){
 
 
 return(<div id ="nav-bar">
-    <Link to = "/" className = "link" id = "company-name">Song Dynasty</Link> 
+    <Link to = "/" className = "link" id = "company-name">Tax Dynasty</Link> 
     <ul id = "nav-links">
     <Link to = "/tax" className = "link">Tax Filing</Link>
     <Link to = "/pricing" className = "link">Pricing</Link>

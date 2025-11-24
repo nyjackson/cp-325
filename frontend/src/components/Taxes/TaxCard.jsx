@@ -6,7 +6,7 @@ return(
     <h1>{title}</h1>
     <h2>{price}</h2>
     <p>{description}</p>
-    <button>Get Started</button>
+    <button className = "tax-btn">Get Started</button>
 </div>)
 }
 

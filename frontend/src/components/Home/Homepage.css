@@ -1,3 +1,43 @@
-#home{
-    /* padding-left:1%; */
+:root {
+    --primary-maroon: #8B0000;
+    --primary-charcoal: #2C2C2C;
+    --accent-gold: #D4AF37;
+    --border-gray: #DDDDDD;
+    --light-gray: #F5F5F5;
+}
+
+.info-card{
+    background-color: var(--light-gray);
+    color:var(--accent-gold);
+    width:15rem;
+    text-align: center;
+    padding:1rem;
+    margin:auto;
+    border-radius: 2rem;
+    font-family: "TASA Explorer", sans-serif;
+}
+.info-card > h1{
+    font-size:5rem;
+}
+.info-card > h4 {
+    color:var(--primary-charcoal);
+    opacity:70%;
+}
+
+#appt{
+    display:flex;
+    border: 1px solid rgb(226, 40, 40);
+    justify-content: space-between;
+}
+
+form > input {
+    font-family: "TASA Explorer", sans-serif;
+}
+
+select {
+    font-family: "TASA Explorer", sans-serif;
+}
+
+img{
+    width:10rem;
 }
