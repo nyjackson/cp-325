@@ -41,6 +41,7 @@ Steps:
 ## Resources
 - https://coolors.co/8b0000-2c2c2c-d4af37-f5f5f5-dddddd
 - https://www.pexels.com/
+- https://fonts.google.com/
 
 ## Libraries/Frameworks Used
 - Mongoose, Express, Redux/React, and Node.js

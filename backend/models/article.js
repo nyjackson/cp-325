@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const articleSchema = mongoose.Schema({
-  article_name: { type: String, required: true },
+  title: { type: String, required: true },
   author: { type: String, required: true },
   posted_on: { type: Date, default: Date.now(), required:true },
   edited_on : {type:Date},

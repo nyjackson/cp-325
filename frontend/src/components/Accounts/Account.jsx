@@ -4,13 +4,11 @@ import {
   editProfile,
   linkAccount,
   delinkAccount,
-  test,
   selectUser,
   selectLoginStatus,
 } from "../slices/accountSlice";
 import Hero from "../Hero";
 import { BACKEND_URL } from "../../App";
-import Calendar from 'react-calendar'
 
 function Account() {
   const user = useSelector(selectUser);
@@ -44,6 +42,9 @@ function Account() {
   }
   function showUserList() {
     setShowStatus(!showList)
+    
+  }
+  function handleEditDetails() {
     
   }
   const listAllEmployees = empList.map((e) => <li key={e._id}>{e.username}</li>);

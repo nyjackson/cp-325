@@ -11,13 +11,10 @@ export const accountSlice = createSlice({
         console.log(...state.accountUser)
     },
     editProfile: (state, action) => {
-      return {...state, ...action.payload}
+      return {...state, ...action.payload} // need to test 
     },
-    linkAccount: () => {},
-    delinkAccount: () => {},
-    test: () => {
-      console.log("Test")
-    },
+    linkAccount: () => {}, // need to implement
+    delinkAccount: () => {}, // need to implement
     setUser: (state, action) => {
       console.log("Setting User to..", action.payload)
       state.accountUser = {...action.payload}
@@ -36,7 +33,7 @@ export const accountSlice = createSlice({
   }
 });
 
-export const { test, editProfile, linkAccount, delinkAccount, setUser, setLoginStatus, getLoginStatus } = accountSlice.actions;
+export const { editProfile, linkAccount, delinkAccount, setUser, setLoginStatus, getLoginStatus } = accountSlice.actions;
 
 // export const selectClientAccount = (state) => state.account.clients; //slice.name.valueHere
 // export const selectEmployeeAccount = (state) => state.account.employees; //slice.name

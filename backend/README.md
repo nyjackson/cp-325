@@ -23,9 +23,8 @@
 - employeeAccount.js: Employee model schema for employee accounts
 
 ### /routes
-- accountRoutes.js: Contains the routing for account controller functions
+- accountRoutes.js: Contains the routing for account controller functions (POST, GET, PUT, DELETE)
 - articleRoutes.js: Contains the routing for article controller functions*
 
 ## Notes and Known Issues
 - Incomplete Features are denoted with an asterisk (*)
-- Improvement Plans: 
