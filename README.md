@@ -1,4 +1,4 @@
-## Capstone 325: Tax Tavern - A Tax Preparation Company Site
+## Capstone 325: Tax Dynasty - A Tax Preparation Company Site
 
 MERN Stack final capstone project for Per Scholas' 2025 RTT-48: Full Stack Development Course. 
 
