@@ -71,7 +71,7 @@ function Account() {
           </p>
           <p>
             <button className = "tlink">Edit Profile Details</button>
-            {user.curr_appts?.length > 0
+            {user.curr_appts?.length > 0 
               ? `Upcoming Appointments: ${user.curr_appts[0]}`
               : <button className = "tlink">Schedule An Appointment</button>}
           </p>

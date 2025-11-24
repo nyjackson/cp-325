@@ -51,7 +51,7 @@ function EmployeeLogin(){
           autoComplete="password"
         />
         <br></br>
-        <button>Sign In</button> 
+        <button className = "tlink">Sign In</button> 
   </form> : ''}
 
     {isLoggedIn ? <Account/> : ''}
