@@ -18,7 +18,7 @@ Pictures from Pexel
 - /NavBar: Navigation bar component and styling (handled via React Router)
 - /slices: account and error slice redux components
 - /Taxes: Contains Pricing, Tax Price Card Info, and Taxes page components. 
-- /Resources: Article, Quiz*, and Resources components, as well as Resources stylesheet
+- /Resources: Article, Quiz*, and Resources page components, as well as Resources stylesheet
 
 ### /slices
 Contains account and error message slices of Redux store and their corresponding state reducer functions. 
