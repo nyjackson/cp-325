@@ -14,41 +14,14 @@ function Account() {
   const user = useSelector(selectUser);
   const loginStatus = useSelector(selectLoginStatus);
   const dispatch = useDispatch();
-
-  const [clientList, setClientList] = useState([])
-  const [empList, setEmpList] = useState([]); //temp
-  const [showList, setShowStatus] = useState(false)
-
-  useEffect( () => {
-    if(showList){
-        grabAllUsers()
-    }
-  }, [showList]);
   console.log("In Account Component, getting user:", user);
   
   const joinDate = user.joined_on.split("T")[0];
-
-  async function grabAllUsers() {
-    try {
-      const response = await fetch(`${BACKEND_URL}/account`);
-      const data = await response.json();
-      console.log("Data",data)
-      setClientList([...data.body.clients])
-      setEmpList([...data.body.employees]);
-      console.log("data");
-    } catch (e) {
-      console.log(e);
-    }
-  }
-  function showUserList() {
-    setShowStatus(!showList)
-    
-  }
+  
   function handleEditDetails() {
-    
+
   }
-  const listAllEmployees = empList.map((e) => <li key={e._id}>{e.username}</li>);
-  const listAllClients = clientList.map((c) => <li key={c._id}>{c.username}</li>);
+
   return (
     <>
       {loginStatus ? (
@@ -81,31 +54,6 @@ function Account() {
       ) : (
         ""
       )}
-      {user.access_role == "Admin"
-        ? (<>
-            <button onClick = {showUserList}> Display All Clients and Employees</button>
-        <div id = "user-lists">
-            {showList ? (
-            <div>
-            <h2>Employee List</h2>
-            <ul>{listAllEmployees}</ul>
-            </div>
-            ) : ''}
-        {showList ? (
-            <div>
-            <h2>Client List</h2>
-            <ul>{listAllClients}</ul>
-            </div>
-            ) : ''}
-        </div>
-        
-        </>
-    )
-        : ''}
-
-        {user.access_role == "Admin" || user.access_role == "Manager" ? 
-      (<button>Add New Employee</button>) : ''  
-      }
     </>
   );
 }

@@ -1,10 +1,10 @@
 import { BACKEND_URL } from "../../App";
-import Account from "./Account";
 import {useRef} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { selectLoginStatus, setUser, setLoginStatus } from "../slices/accountSlice";
 import MessageBox from "../MessageBox";
 import { displayMessageStatus, setActive, makeError } from "../slices/errorSlice";
+import EmployeeAccount from "./EmployeeAccount";
 function EmployeeLogin(){
 
   const formRef = useRef()
@@ -59,7 +59,7 @@ function EmployeeLogin(){
         <button className = "tlink">Sign In</button> 
   </form> : ''}
 
-    {isLoggedIn ? <Account/> : ''}
+    {isLoggedIn ? <EmployeeAccount/> : ''}
   
   </>);
 }
