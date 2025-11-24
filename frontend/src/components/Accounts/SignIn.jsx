@@ -5,13 +5,17 @@ import {useRef} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { setUser, setLoginStatus, selectLoginStatus } from "../slices/accountSlice";
 import Account from "./Account";
+import MessageBox from "../MessageBox";
+import { displayMessageStatus, setActive, makeError } from "../slices/errorSlice";
 
 function SignIn() {
   const formRef = useRef()
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(selectLoginStatus)
+  const showMessage = useSelector(displayMessageStatus)
 
   async function handleLogin(e) {
+    dispatch(setActive(false))
     e.preventDefault()
     const user = {
       username: formRef.current[0].value,
@@ -28,11 +32,13 @@ function SignIn() {
     }
     catch(e){
       console.log(e)
+      dispatch(setActive(true))
+      dispatch(makeError("Invalid Credentials. Review username and password and try again."))
     }
   }
   return (
   <>
-  
+  {showMessage ? <MessageBox />: ''}
   {!isLoggedIn ? <form ref = {formRef} onSubmit = {handleLogin} id = "sign-in">
     <h1>Client Sign In</h1>
         <label htmlFor="uname">Username, Email, or Phone Number: </label>

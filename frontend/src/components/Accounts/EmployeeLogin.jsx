@@ -3,11 +3,14 @@ import Account from "./Account";
 import {useRef} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { selectLoginStatus, setUser, setLoginStatus } from "../slices/accountSlice";
+import MessageBox from "../MessageBox";
+import { displayMessageStatus, setActive, makeError } from "../slices/errorSlice";
 function EmployeeLogin(){
 
   const formRef = useRef()
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(selectLoginStatus)
+  const showMessage = useSelector(displayMessageStatus)
 
   async function handleLogin(e) {
     e.preventDefault()
@@ -27,11 +30,13 @@ function EmployeeLogin(){
     }
     catch(e){
       console.log(e)
+      dispatch(setActive(true))
+      dispatch(makeError("Invalid Credentials. Review username and password and try again."))
     }
   }
   return (
   <>
-  
+  {showMessage ? <MessageBox />: ''}
   {!isLoggedIn ? <form ref = {formRef} onSubmit = {handleLogin} id = "sign-in">
     <h1>Employee Sign In</h1>
         <label htmlFor="uname">Username or Email: </label>
