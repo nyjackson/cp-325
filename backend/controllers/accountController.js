@@ -1,4 +1,3 @@
-
 import ClientAccount from "../models/clientAccount.js";
 import EmployeeAccount from "../models/employeeAccount.js";
 import authController from "./authController.js";
@@ -197,10 +196,6 @@ const clientSignIn = async (req, res) => {
   //   res.status(404).send({ message: e.message }); // body: (username entered)
   // }
 
-const signout = async (req,res) =>  {
-  
-  }
-
 export default {
   displayInfo,
   addEmployee,
@@ -214,5 +209,4 @@ export default {
   deleteClientAccount,
   editEmployeeDetails,
   deleteEmployeeAccount,
-  signout
 };

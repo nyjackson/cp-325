@@ -2,19 +2,26 @@ import SignIn from "./SignIn";
 import { Link } from "react-router";
 import { useRef, useState, useEffect } from "react";
 import { BACKEND_URL } from "../../App";
+import MessageBox from "../MessageBox";
+import { makeError, makeWarning, setActive, selectMessage, displayMessageStatus } from "../slices/errorSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function SignUp() {
   
   const formRef = useRef();
-  const [showError, setError] = useState(false)
-
+  const dispatch = useDispatch()
+  const messageBox = useSelector(selectMessage)
+  const showMessage = useSelector(displayMessageStatus)
   useEffect(()=>{
-
-  },[showError])
+    //dispatch(setActive(false))
+    console.log("display message?", showMessage)
+    console.log("display message?", messageBox)
+  },[showMessage, messageBox])
 
   async function handleForm(e) {
     e.preventDefault();
     console.log("handle Sign Up Form Submission");
+    dispatch(setActive(false))
     const newAccount = {
       "first_name": formRef.current[0].value,
       "last_name": formRef.current[1].value,
@@ -23,19 +30,20 @@ function SignUp() {
       "password": formRef.current[5].value, // add password logic here. (encrypt before transit)
     }
     console.log(formRef)
+    console.log("display message?", showMessage)
+    console.log("display message?", messageBox)
     try{
-     const response = await fetch(BACKEND_URL+"/account/register/client", {method: "post", body: JSON.stringify(newAccount), headers: {'Content-Type':'application/json'}})
-     const accountCreated = await response.json()
-
-     console.log("Account Created:", accountCreated)
-
+     const connection = await fetch(BACKEND_URL+"/account/register/client", {method: "post", body: JSON.stringify(newAccount), headers: {'Content-Type':'application/json'}})
+     const accountCreated = await connection.json()
+     if(connection.accountCreated.message[0] == "U" || connection.accountCreated == undefined) {throw new Error("Unable to create account, make sure all fields are filled before proceeding.") }
+    // console.log("Account Created:", accountCreated)
      // reducer here to add the new account to accounts 
     }
-    catch(e){
+    catch(e){ // not reaching the catch even though the response is giving 404
       console.log("Error Detected", e)
-      setError(true)
+      dispatch(makeError(e.message))
+      dispatch(setActive(true))
     }
-    setError(false)
   }
 
   return (
@@ -123,7 +131,7 @@ function SignUp() {
       </Link>
       </form>
 
-      {/* {showError ? <MessageBox message = {{type: "?", content: "Enter missing information"}}/> : ''} */}
+      {showMessage ? <MessageBox {...messageBox}/> : ''}
     </>
   );
 }

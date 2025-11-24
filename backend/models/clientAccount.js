@@ -15,7 +15,7 @@ const clientAccountSchema = mongoose.Schema({
   tax_yr_returns: {type: Array, default: []}, // {return_yr: 2021, completed: BOOL completed_on: DATE, status: refund_given || payment_owed
   connected_accounts: {type: Array, default: []} //by client username
 });
-
+clientAccountSchema.index({"username":1})
 const ClientAccount = mongoose.model('client_accounts', clientAccountSchema) // collection, schema
 
 export default ClientAccount

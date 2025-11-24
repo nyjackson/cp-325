@@ -3,30 +3,33 @@ import { createSlice } from "@reduxjs/toolkit";
 export const errorSlice = createSlice({
   name: "error",
   initialState: {
-    type: "",
-    content: ""
+    message: {type: "",
+    content: "",
+  active:false}
   },
   reducers: {
-    showWarning: (state, action) => {
-        state.type = "?"
-        state.content = action.payload
+    makeWarning: (state, action) => {
+        state.message.type = "?"
+        state.message.content = action.payload
+        return 
     },
-    showError: (state,action) => {
-        state.type = "!"
-        state.content = action.payload
+    makeError: (state,action) => {
+      console.log("In make error, payload is", action.payload)
+        state.message.type = "!"
+        state.message.content = action.payload
+        return
     },
-    // decrement: (state) => {
-    //   state.value -= 1;
-    // }
+    setActive : (state, action) => {
+      console.log("In setActive", action.payload)
+      console.log("State", state.message.active)
+      state.message.active = action.payload
+      return state
+    }
   }
 });
 
-export const { showWarning, showError } = errorSlice.actions;
+export const { makeWarning, makeError, setActive } = errorSlice.actions;
 
-// export const selectClientAccount = (state) => state.account.clients; //slice.name.valueHere
-// export const selectEmployeeAccount = (state) => state.account.employees; //slice.name
-
-export const selectType = (state) => state.error.type;
-export const selectError = (state) => state.error.isLoggedIn;
-
+export const selectMessage = (state) => state.error.message; //slice.name.valueHere
+export const displayMessageStatus = (state) => state.error.message.active;
 export default errorSlice.reducer;

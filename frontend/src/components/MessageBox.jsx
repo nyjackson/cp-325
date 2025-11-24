@@ -1,19 +1,33 @@
-import {useState} from 'react'
+import {
+  selectMessage,
+  setActive,
+  displayMessageStatus,
+} from "./slices/errorSlice";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+function MessageBox() {
+  const dispatch = useDispatch();
+  const { type, content } = useSelector(selectMessage);
 
-function MessageBox({message}){
-const [showMessage, setShow] = useState(true)
-// message.type = error, warning
-// message.content = Invalid Password, Successfully signed out
-function closeMessageBox(e){
-setShow(!showMessage)
-}
-return(
-<>
-{showMessage ? <div className = "message-box">
-    <div className = "message"><span>{message?.type || "!"}</span><h3>{message?.content || "Something went wrong."}</h3> </div>
-    <h4 onClick = {closeMessageBox}>x</h4>
-</div>: ''}
+useEffect(() => {},[displayMessageStatus])
 
-</>)
+  function closeMessageBox(e) {
+    dispatch(setActive(false));
+  }
+  return (
+    <>
+      {displayMessageStatus ? (
+        <div className="message-box">
+          <div className="message">
+            <span>{type || "!"}</span>
+            <h3>{content || "Something went wrong."}</h3>{" "}
+          </div>
+          <h4 onClick={closeMessageBox}>x</h4>
+        </div>
+      ) : (
+        ""
+      )}
+    </>
+  );
 }
-export default MessageBox
+export default MessageBox;

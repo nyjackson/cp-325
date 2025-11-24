@@ -13,6 +13,8 @@ const employeeAccountSchema = mongoose.Schema({
   certifications: { type: Array, required: true },
 });
 
+employeeAccountSchema.index({"username":1})
+
 const EmployeeAccount = mongoose.model(
   "employee_accounts",
   employeeAccountSchema
