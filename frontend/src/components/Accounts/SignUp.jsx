@@ -33,10 +33,17 @@ function SignUp() {
     formRef.current[6].value = "";
   }
 
+  function passwordsMatch(){
+    if(formRef.current[5].value !==formRef.current[6].value){
+      return false
+    }
+    else{return true}
+  }
   async function handleForm(e) {
     e.preventDefault();
     console.log("handle Sign Up Form Submission");
     dispatch(setActive(false));
+  
     const newAccount = {
       first_name: formRef.current[0].value,
       last_name: formRef.current[1].value,
@@ -137,14 +144,14 @@ function SignUp() {
         />
         <br></br>
 
-        <label htmlFor="pass">Confirm Password: </label>
+        {/* <label htmlFor="pass">Confirm Password: </label>
         <input
           type="password"
           className="pass"
           name="new-password"
           autoComplete="new-password"
         />
-        <br></br>
+        <br></br> */}
 
         <button className="tax-btn">
           {/* <Link to="/account" element={<Account />}>
