@@ -1,7 +1,7 @@
 import { BACKEND_URL } from "../../App";
 import SignUp from "./SignUp";
 import {Link} from 'react-router'
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { setUser, setLoginStatus, selectLoginStatus } from "../slices/accountSlice";
 import Account from "./Account";
@@ -9,11 +9,12 @@ import MessageBox from "../MessageBox";
 import { displayMessageStatus, setActive, makeError } from "../slices/errorSlice";
 
 function SignIn() {
+  
   const formRef = useRef()
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(selectLoginStatus)
   const showMessage = useSelector(displayMessageStatus)
-
+  useEffect(() => {}, [])
   async function handleLogin(e) {
     dispatch(setActive(false))
     e.preventDefault()
@@ -26,6 +27,7 @@ function SignIn() {
       const result = await connection.json()
       console.log("Handle Login FrontEnd", result)
       localStorage.setItem("token",result.token)
+      
       dispatch(setUser({...result.user[0]}))
       dispatch(setLoginStatus(true))
       return  //Successful Login
@@ -61,7 +63,7 @@ function SignIn() {
         <button className = "tax-btn">Sign In</button> 
         <Link to = "/register" element = {<SignUp />}>Don't have an account?</Link>
   </form> : ''}
-
+    
     {isLoggedIn ? <Account/> : ''}
   
   </>);

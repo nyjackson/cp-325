@@ -49,10 +49,10 @@ function Account() {
             {joinDate}
           </p>
           <p>
-            <button className = "tlink">Edit Profile Details</button>
+            <button className = "tlink" disabled = {true}>Edit Profile Details</button>
             {user.curr_appts?.length > 0 
               ? `Upcoming Appointments: ${user.curr_appts[0]}`
-              : <button className = "tlink">Schedule An Appointment</button>}
+              : <button className = "tlink" disabled = {true}>Schedule An Appointment</button>}
           </p>
           
         </div>

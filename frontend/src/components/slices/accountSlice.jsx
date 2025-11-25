@@ -7,23 +7,20 @@ export const accountSlice = createSlice({
     isLoggedIn: false
   },
   reducers: {
-    showInfo: (state) => {
-        console.log(...state.accountUser)
-    },
     editProfile: (state, action) => {
       return {...state, ...action.payload} // need to test 
     },
     linkAccount: () => {}, // need to implement
     delinkAccount: () => {}, // need to implement
     setUser: (state, action) => {
-      console.log("Setting User to..", action.payload)
+     // console.log("Setting User to..", action.payload)
       state.accountUser = {...action.payload}
       return 
     },
     setLoginStatus: (state, action) => {
-      console.log("Setting the Login Status")
-      console.log(state)
-      console.log(action)
+      // console.log("Setting the Login Status")
+      // console.log(state)
+      // console.log(action)
       state.isLoggedIn = action.payload
       return 
     }

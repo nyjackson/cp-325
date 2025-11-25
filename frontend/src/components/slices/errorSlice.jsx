@@ -14,20 +14,20 @@ export const errorSlice = createSlice({
         return 
     },
     makeError: (state,action) => {
-      console.log("In make error, payload is", action.payload)
+     // console.log("In make error, payload is", action.payload)
         state.message.type = "!"
         state.message.content = action.payload
         return
     },
     signupSuccess: (state,action) => {
-      console.log("In make error, payload is", action.payload)
+      // console.log("In make error, payload is", action.payload)
         state.message.type = "✓"
         state.message.content = action.payload
         return
     },
     setActive : (state, action) => {
-      console.log("In setActive", action.payload)
-      console.log("State", state.message.active)
+      // console.log("In setActive", action.payload)
+      // console.log("State", state.message.active)
       state.message.active = action.payload
       return state
     }

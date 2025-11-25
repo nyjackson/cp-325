@@ -1,0 +1,22 @@
+.dashboard{
+    display:flex;
+    width:100%;
+    justify-content:space-between;
+}
+
+.dashboard > .account-details{
+display:flex;
+flex-direction: column;
+width:40%;
+border-right:1px solid black;
+padding: 1rem;
+}
+
+.user-stats{
+display:flex;
+justify-content: space-evenly;
+}
+
+#noti-box{
+    border-left:1px solid black;
+}

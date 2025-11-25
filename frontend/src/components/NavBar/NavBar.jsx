@@ -1,15 +1,16 @@
 import './NavBar.css'
 import {useSelector} from 'react-redux'
 import {Link} from 'react-router'
-import { selectLoginStatus, setLoginStatus, setUser } from '../slices/accountSlice'
-import { useEffect } from 'react'
+import { selectLoginStatus, setLoginStatus, setUser, selectUser } from '../slices/accountSlice'
+import { useEffect, useState } from 'react'
 function NavBar(){
 const loginStatus = useSelector(selectLoginStatus)
-useEffect(()=> {}, [loginStatus])
-
-async function handleSearch(e){
-    
-}
+const user = useSelector(selectUser)
+const [isEmployee, setAccessStatus] = useState(false)
+console.log(user)
+useEffect(()=> {
+    user.certifications !== undefined ? setAccessStatus(true) : setAccessStatus(false)
+}, [loginStatus])
 
 
 return(<div id ="nav-bar">
@@ -19,7 +20,8 @@ return(<div id ="nav-bar">
     <Link to = "/pricing" className = "link">Pricing</Link>
     <Link to = "/resources" className = "link">Resources</Link>
     <Link to = "/about" className = "link">About Us</Link>
-    {loginStatus ? <Link id = "account-btn" to = "/account" className = "link">Account</Link> : ''}
+    {loginStatus && !isEmployee ? <Link id = "account-btn" to = "/account" className = "link">Account</Link> : ''}
+    {loginStatus && isEmployee ? <Link id = "account-btn" to = "/employee-login" className = "link">Employee Account</Link> : ''}
     {!loginStatus ? <Link id = "account-btn" to = "/register" className = "link">Sign Up/Sign In</Link> : 
     <Link id = "account-btn" className = "link" to = "/signout">Sign Out</Link>}
     
