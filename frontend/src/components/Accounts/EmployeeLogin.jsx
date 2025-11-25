@@ -39,7 +39,7 @@ function EmployeeLogin(){
   {showMessage ? <MessageBox />: ''}
   {!isLoggedIn ? <form ref = {formRef} onSubmit = {handleLogin} id = "sign-in">
     <h1>Employee Sign In</h1>
-        <label htmlFor="uname">Username or Email: </label>
+        <label htmlFor="uname">Username: </label>
         <input
           type="text"
           id="uname"

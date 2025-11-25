@@ -17,7 +17,7 @@ function Taxes() {
       <Link to = "/quiz" className = "tlink">Take The Quiz</Link>
       </div>
       <div id = "review-gallery">
-        <h2>Reviews Here</h2>
+        {/* <h2>Reviews Here</h2> */}
       </div>
     </>
   );

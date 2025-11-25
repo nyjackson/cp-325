@@ -28,15 +28,20 @@ function Account() {
         <div className = "account-details">
           <Hero title={`Welcome Back ${user.first_name}!`} />
           <h1>Account Details</h1>
+           <p>
+            {" "}
+            <b>Name: </b>
+            {user.first_name + " " + user.last_name}
+          </p>
           <p>
             {" "}
             <b>Email: </b>
-            {user.contact?.email || user.personal_contact?.email || ""}
+            {user.contact?.email || ""}
           </p>
           <p>
             {" "}
             <b>Phone: </b>
-            {user.contact?.phone || user.personal_contact?.phone || ""}
+            {user.contact?.phone|| ""}
           </p>
           <p>
             {" "}

@@ -41,7 +41,7 @@ function SignIn() {
   {showMessage ? <MessageBox />: ''}
   {!isLoggedIn ? <form ref = {formRef} onSubmit = {handleLogin} id = "sign-in">
     <h1>Client Sign In</h1>
-        <label htmlFor="uname">Username, Email, or Phone Number: </label>
+        <label htmlFor="uname">Username: </label>
         <input
           type="text"
           id="uname"
