@@ -56,3 +56,8 @@ Steps:
 ### /backend
 - BackEnd Implementation
 - Mongoose, Node, Express
+
+## Author
+Nyala Jackson
+Software Developer
+nymjackson@gmail.com
