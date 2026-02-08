@@ -6,7 +6,7 @@ import './Calendar.css'
 import AppointmentForm from './AppointmentForm';
 
 function Homepage() {
-const countdownDate = new Date("Jan 27, 2026 00:00:00").getTime()
+const countdownDate = new Date(2026,4,14).getTime()
 const [countTilTaxSeason, setCount] = useState("")
 useEffect(() => {
 setInterval(()=>{
